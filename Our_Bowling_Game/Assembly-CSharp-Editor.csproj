@@ -134,7 +134,7 @@
      <None Include="Assets\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
      <None Include="Assets\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
  <Reference Include="Assembly-UnityScript">
- <HintPath>C:/Users/SStep/Desktop/Our_Bowling_Game/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+ <HintPath>C:/Users/SStep/Desktop/Bowling/MobileBowlingGame/Our_Bowling_Game/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

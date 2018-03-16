@@ -8,19 +8,26 @@ public class Touch_Controls : MonoBehaviour
     private Vector3 fp;   //First touch position
     private Vector3 lp;   //Last touch position
     private float dragDistance;  //minimum distance for a swipe to be registered
-    public GameObject other;
-    public Rigidbody rb;
-    public float thrust = 10f;
+    public float speed;
+    private Rigidbody rb;
+    private float pointer_x;
+    private float pointer_y;
 
     void Start()
     {
-        dragDistance = Screen.height * 15 / 100; //dragDistance is 15% height of the screen
+        dragDistance = Screen.height * 5 / 100; //dragDistance is 5% height of the screen
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
+
+        Vector3 movement = new Vector3(pointer_x, 0.0f, pointer_y);
         if (Input.touchCount == 1) // user is touching the screen with a single touch
         {
+            pointer_x = Input.touches[0].deltaPosition.x;
+            pointer_y = Input.touches[0].deltaPosition.y;
+
             Touch touch = Input.GetTouch(0); // get the touch
             if (touch.phase == TouchPhase.Began) //check for the first touch
             {
@@ -35,7 +42,7 @@ public class Touch_Controls : MonoBehaviour
             {
                 lp = touch.position;  //last touch position. Ommitted if you use list
 
-                //Check if drag distance is greater than 20% of the screen height
+                //Check if drag distance is greater than 5% of the screen height
                 if (Mathf.Abs(lp.x - fp.x) > dragDistance || Mathf.Abs(lp.y - fp.y) > dragDistance)
                 {//It's a drag
                  //check if the drag is vertical or horizontal
@@ -44,12 +51,12 @@ public class Touch_Controls : MonoBehaviour
                         if ((lp.x > fp.x))  //If the movement was to the right)
                         {   //Right swipe
                             Debug.Log("Right Swipe");
-                            rb.AddForce(Vector3.forward * thrust);
+                            rb.AddForce(movement * speed);
                         }
                         else
                         {   //Left swipe
                             Debug.Log("Left Swipe");
-                            rb.AddForce(-Vector3.forward * thrust);
+                            rb.AddForce(movement * speed);
                         }
                     }
                     else
@@ -57,13 +64,12 @@ public class Touch_Controls : MonoBehaviour
                         if (lp.y > fp.y)  //If the movement was up
                         {   //Up swipe
                             Debug.Log("Up Swipe");
-                            rb.AddForce(-Vector3.right * thrust);
-                            thrust++;
+                            rb.AddForce(movement * speed); ;
                         }
                         else
                         {   //Down swipe
                             Debug.Log("Down Swipe");
-                            rb.AddForce(Vector3.right * thrust);
+                            rb.AddForce(movement * speed);
                         }
                     }
                 }

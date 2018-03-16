@@ -52,6 +52,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Camera_Controller.cs" />
+     <Compile Include="Assets\Mouse_Drag_Test.cs" />
+     <Compile Include="Assets\Move_ball.cs" />
      <Compile Include="Assets\POLY STYLE - Vegetation Pack\Script\TakeScreenshot.cs" />
      <Compile Include="Assets\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Scripts\Antialiasing.cs" />
      <Compile Include="Assets\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Scripts\Bloom.cs" />
