@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\LowPolyWater_Pack\Scripts\Editor\GeneratePlane.cs" />
      <Compile Include="Assets\POLY STYLE - Vegetation Pack\Editor\ImageEffects\AntialiasingEditor.cs" />
      <Compile Include="Assets\POLY STYLE - Vegetation Pack\Editor\ImageEffects\BloomAndFlaresEditor.cs" />
      <Compile Include="Assets\POLY STYLE - Vegetation Pack\Editor\ImageEffects\BloomEditor.cs" />
@@ -67,6 +68,7 @@
      <None Include="Assets\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
+     <None Include="Assets\LowPolyWater_Pack\LowPoly Island\Credits.txt" />
      <None Include="Assets\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\ShowAlphaChannel.shader" />
      <None Include="Assets\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />
      <None Include="Assets\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionCurves.shader" />
@@ -87,6 +89,7 @@
      <None Include="Assets\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset3.shader" />
      <None Include="Assets\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\FisheyeShader.shader" />
      <None Include="Assets\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Apply.shader" />
+     <None Include="Assets\LowPolyWater_Pack\Shaders\WaterShaded.shader" />
      <None Include="Assets\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\frag_ao.cginc" />
      <None Include="Assets\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfField34.shader" />
      <None Include="Assets\POLY STYLE - Vegetation Pack\Readme.txt" />
