@@ -13,7 +13,7 @@ public class Camera_Controller : MonoBehaviour
     {
         Vector3 desiredPosition = target.position + offset;
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
-        transform.position = target.position + offset;
+        transform.position = smoothedPosition;
 
         transform.LookAt(target);
     }
