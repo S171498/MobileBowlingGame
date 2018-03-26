@@ -2,13 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camera_Controller : MonoBehaviour
+public class 
+    Camera_Controller : MonoBehaviour
 {
     public Transform target;
 
     public float smoothSpeed = 0.125f;
     public Vector3 offset;
     
+    void Update()
+    {
+        //transform.RotateAround(target.position, Vector3.up, 20 * Time.deltaTime);
+    }
+
     void FixedUpdate()
     {
         Vector3 desiredPosition = target.position + offset;
@@ -17,7 +23,6 @@ public class Camera_Controller : MonoBehaviour
 
         transform.LookAt(target);
     }
-
-    
 }
+
 

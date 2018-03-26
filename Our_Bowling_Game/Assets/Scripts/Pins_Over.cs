@@ -131,7 +131,6 @@ public class Pins_Over : MonoBehaviour {
 
         pinsHit.text = "Pins " + fallen;
         yield return new WaitForSeconds(5);
-
         player.transform.position = new Vector3(1, 1, 1);
         firstBowl = false;
         secondBowl = true;
