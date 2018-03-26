@@ -15,6 +15,8 @@ public class Pins_Over : MonoBehaviour {
     public bool secondBowl;
     public GameObject player;
 
+    public Vector3 playerPosition;  // Records player position at start of level
+
     // Use this for initialization
     void Start () {
 
@@ -23,7 +25,7 @@ public class Pins_Over : MonoBehaviour {
 	}
 
     void Awake() {
-
+        playerPosition = player.transform.position;
         strikePanel.SetActive(false);
         //pinsPanel.SetActive(true);
     }
@@ -129,10 +131,11 @@ public class Pins_Over : MonoBehaviour {
     IEnumerator FirstBowl()
     {
 
+
         pinsHit.text = "Pins " + fallen;
         yield return new WaitForSeconds(5);
 
-        player.transform.position = new Vector3(1, 1, 1);
+        player.transform.position = playerPosition;
         firstBowl = false;
         secondBowl = true;
     }
@@ -141,13 +144,14 @@ public class Pins_Over : MonoBehaviour {
     {
         pinsHit.text = "Pins " + fallen;
         Debug.Log("Pins " + fallen);
-        yield return new WaitForSeconds(5);
+       yield return new WaitForSeconds(5);
         //SceneManager.LoadScene("Test_Scene", LoadSceneMode.Single);
     }
 
     IEnumerator LevelFinished()
     {
         //pinsPanel.SetActive(false);
+        pinsHit.text = "Spare";
         yield return new WaitForSeconds(5);
         SceneManager.LoadScene("Test_Scene", LoadSceneMode.Single);
     }
