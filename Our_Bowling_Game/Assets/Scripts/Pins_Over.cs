@@ -7,10 +7,14 @@ using UnityEngine.SceneManagement;
 public class Pins_Over : MonoBehaviour {
 
     public int fallen = 0;
+    public int score = 0;
+    public int highScore = 0;
     public GameObject strikePanel;
     //public GameObject pinsPanel;
     public Text strikeText;
     public Text pinsHit;
+    public Text roundScore;
+    //public Text HighScore;
     public bool firstBowl;
     public bool secondBowl;
     public GameObject player;
@@ -22,12 +26,17 @@ public class Pins_Over : MonoBehaviour {
 
         firstBowl = true;
         secondBowl = false;
-	}
+        highScore = PlayerPrefs.GetInt("highScore", +highScore);
+    }
 
     void Awake() {
         playerPosition = player.transform.position;
         strikePanel.SetActive(false);
         //pinsPanel.SetActive(true);
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Test_Scene"))
+        {
+            PlayerPrefs.DeleteAll();
+        }
     }
 	
 	// Update is called once per frame
@@ -124,17 +133,15 @@ public class Pins_Over : MonoBehaviour {
             StartCoroutine(LevelFinished());
         }
 
-        PlayerPrefs.SetInt("Fallen", fallen);
+        roundScore.text = "Score " + score;
+        //HighScore.text = "High Score " + highScore;
 
     }
 
     IEnumerator FirstBowl()
     {
-
-
         pinsHit.text = "Pins " + fallen;
-        yield return new WaitForSeconds(5);
-
+        yield return new WaitForSeconds(2);
         player.transform.position = playerPosition;
         firstBowl = false;
         secondBowl = true;
@@ -153,18 +160,23 @@ public class Pins_Over : MonoBehaviour {
         //pinsPanel.SetActive(false);
         pinsHit.text = "Spare";
         yield return new WaitForSeconds(5);
-        SceneManager.LoadScene("Test_Scene", LoadSceneMode.Single);
+        SceneManager.LoadScene("New_Test", LoadSceneMode.Single);
+        
     }
 
     IEnumerator Strike()
     {
         strikePanel.SetActive(true);
         yield return new WaitForSeconds(5);
-        SceneManager.LoadScene("Test_Scene", LoadSceneMode.Single);
+        SceneManager.LoadScene("New_Test", LoadSceneMode.Single);
     }
 
     void OnTriggerExit(Collider other)
     {
         fallen ++;
+        score += 10;
+        highScore += 10;
+        PlayerPrefs.SetInt("highScore", highScore);
+        PlayerPrefs.Save();
     }
 }

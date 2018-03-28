@@ -54,10 +54,12 @@
      <Compile Include="Assets\Asset Packs\LowPolyWater_Pack\Scripts\LowPolyWater.cs" />
      <Compile Include="Assets\Asset Packs\POLY STYLE - Vegetation Pack\Script\TakeScreenshot.cs" />
      <Compile Include="Assets\Scripts\Camera_Controller.cs" />
+     <Compile Include="Assets\Scripts\DDOL.cs" />
      <Compile Include="Assets\Scripts\Mouse_Drag_Test.cs" />
      <Compile Include="Assets\Scripts\Move_ball.cs" />
      <Compile Include="Assets\Scripts\Pins_Over.cs" />
      <Compile Include="Assets\Scripts\Player_Script.cs" />
+     <Compile Include="Assets\Scripts\Score.cs" />
      <Compile Include="Assets\Scripts\Stop_Controls.cs" />
      <Compile Include="Assets\Scripts\Touch_Controls.cs" />
      <None Include="Assets\Asset Packs\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
