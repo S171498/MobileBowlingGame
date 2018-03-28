@@ -253,7 +253,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 49019744}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 255.5, y: 211, z: 0}
+  m_LocalPosition: {x: 357.5, y: 207.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 255788458}
@@ -544,7 +544,7 @@ RectTransform:
   m_GameObject: {fileID: 312116520}
   m_LocalRotation: {x: 0.3730008, y: -0, z: -0, w: 0.92783105}
   m_LocalPosition: {x: 0, y: -61.836346, z: 67.65409}
-  m_LocalScale: {x: 0.24304624, y: 0.24304624, z: 0.24304624}
+  m_LocalScale: {x: 0.24714582, y: 0.24714582, z: 0.24714582}
   m_Children:
   - {fileID: 566402799}
   m_Father: {fileID: 0}
@@ -677,7 +677,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 566402796}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.200012, y: 78, z: 0}
+  m_LocalPosition: {x: -128.20001, y: 74.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 312116521}
@@ -913,6 +913,7 @@ GameObject:
   - component: {fileID: 1309846089}
   - component: {fileID: 1309846088}
   - component: {fileID: 1309846087}
+  - component: {fileID: 1309846095}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1037,6 +1038,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1309846095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1309846086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09a7065c28b3107499b9aa25614a2fc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  rotateSpeed: 5
 --- !u!1 &1364334889
 GameObject:
   m_ObjectHideFlags: 0
@@ -1363,7 +1377,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1623059209}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 255.5, y: 211, z: 0}
+  m_LocalPosition: {x: 357.5, y: 207.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 117862212}
@@ -1764,10 +1778,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1309846086}
   pinsCounter: {fileID: 1525395335}
-  touchScript: {fileID: 0}
-  playerScript: {fileID: 0}
-  pinsScript: {fileID: 0}
+  touchScript: {fileID: 1309846088}
+  playerScript: {fileID: 1309846087}
+  pinsScript: {fileID: 1525395337}
   joystickScript: {fileID: 0}
+  tapHoldScript: {fileID: 1309846095}
 --- !u!23 &2082770428
 MeshRenderer:
   m_ObjectHideFlags: 0
