@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TapHold_Test : MonoBehaviour {
 
@@ -14,11 +15,13 @@ public class TapHold_Test : MonoBehaviour {
     private float pointer_y;
     private float holdTime = 0.8f;
     private float acumTime = 0f;
+    public Text powerText;
 
     void Start()
     {
         dragDistance = Screen.height * 5 / 100; //dragDistance is 5% height of the screen
         rb = GetComponent<Rigidbody>();
+        powerText.text = "power " + speed;
     }
 
     void Update()
@@ -40,6 +43,8 @@ public class TapHold_Test : MonoBehaviour {
                 rb.AddForce(Vector3.forward * speed);
                 speed = 10;
             }
+
+            powerText.text = "power " + speed;
         }
         Vector3 movement = new Vector3(pointer_x, 0.0f, pointer_y);
         if (Input.touchCount == 1) // user is touching the screen with a single touch
