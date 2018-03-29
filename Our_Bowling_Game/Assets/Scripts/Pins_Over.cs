@@ -10,7 +10,6 @@ public class Pins_Over : MonoBehaviour {
     public int score = 0;
     public int highScore = 0;
     public GameObject strikePanel;
-    public GameObject sparePanel;
     //public GameObject pinsPanel;
     public Text strikeText;
     public Text pinsHit;
@@ -38,14 +37,6 @@ public class Pins_Over : MonoBehaviour {
         {
             PlayerPrefs.DeleteAll();
         }
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("New_Test"))
-        {
-            PlayerPrefs.DeleteAll();
-        }
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Tap&Hold_Test"))
-        {
-            PlayerPrefs.DeleteAll();
-        }
     }
 	
 	// Update is called once per frame
@@ -55,55 +46,82 @@ public class Pins_Over : MonoBehaviour {
         {
             StartCoroutine(FirstBowl());
         }
-      
+        else if (fallen == 1 && secondBowl == true)
+        {
+            StartCoroutine(SecondBowl());
+        }
 
         if (fallen == 2 && firstBowl == true)
         {
             StartCoroutine(FirstBowl());
         }
-      
+        else if (fallen == 2 && secondBowl == true)
+        {
+            StartCoroutine(SecondBowl());
+        }
 
         if (fallen == 3 && firstBowl == true)
         {
             StartCoroutine(FirstBowl());
         }
-      
+        else if (fallen == 3 && secondBowl == true)
+        {
+            StartCoroutine(SecondBowl());
+        }
 
         if (fallen == 4 && firstBowl == true)
         {
             StartCoroutine(FirstBowl());
         }
-      
+        else if (fallen == 4 && secondBowl == true)
+        {
+            StartCoroutine(SecondBowl());
+        }
 
         if (fallen == 5 && firstBowl == true)
         {
             StartCoroutine(FirstBowl());
         }
-       
+        else if (fallen == 5 && secondBowl == true)
+        {
+            StartCoroutine(SecondBowl());
+        }
 
         if (fallen == 6 && firstBowl == true)
         {
             StartCoroutine(FirstBowl());
         }
-        
+        else if (fallen == 6 && secondBowl == true)
+        {
+            StartCoroutine(SecondBowl());
+        }
 
         if (fallen == 7 && firstBowl == true)
         {
             StartCoroutine(FirstBowl());
         }
-      
+        else if (fallen == 7 && secondBowl == true)
+        {
+            StartCoroutine(SecondBowl());
+        }
 
         if (fallen == 8 && firstBowl == true)
         {
             StartCoroutine(FirstBowl());
         }
-      
+        else if (fallen == 8 && secondBowl == true)
+        {
+            StartCoroutine(SecondBowl());
+        }
 
         if (fallen == 9 && firstBowl == true)
         {
             StartCoroutine(FirstBowl());
         }
-       
+        else if (fallen == 9 && secondBowl == true)
+        {
+            StartCoroutine(SecondBowl());
+        }
 
         if (fallen == 10 && firstBowl == true)
         {
@@ -122,7 +140,7 @@ public class Pins_Over : MonoBehaviour {
 
     IEnumerator FirstBowl()
     {
-        //pinsHit.text = "Pins " + fallen;
+        pinsHit.text = "Pins " + fallen;
         yield return new WaitForSeconds(2);
         player.transform.position = playerPosition;
         firstBowl = false;
@@ -131,28 +149,26 @@ public class Pins_Over : MonoBehaviour {
 
     IEnumerator SecondBowl()
     {
-        //pinsHit.text = "Pins " + fallen;
+        pinsHit.text = "Pins " + fallen;
         Debug.Log("Pins " + fallen);
        yield return new WaitForSeconds(5);
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        //SceneManager.LoadScene("Test_Scene", LoadSceneMode.Single);
     }
 
     IEnumerator LevelFinished()
     {
         //pinsPanel.SetActive(false);
-        //pinsHit.text = "Spare";
-        sparePanel.SetActive(true);
+        pinsHit.text = "Spare";
         yield return new WaitForSeconds(5);
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        SceneManager.LoadScene("New_Test", LoadSceneMode.Single);
         
     }
 
     IEnumerator Strike()
     {
         strikePanel.SetActive(true);
-        yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
-        //SceneManager.LoadScene("New_Test", LoadSceneMode.Single);
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene("New_Test", LoadSceneMode.Single);
     }
 
     void OnTriggerExit(Collider other)
