@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\Move_ball.cs" />
      <Compile Include="Assets\Scripts\Pins_Over.cs" />
      <Compile Include="Assets\Scripts\Player_Script.cs" />
+     <Compile Include="Assets\Scripts\RemovePins.cs" />
      <Compile Include="Assets\Scripts\Score.cs" />
      <Compile Include="Assets\Scripts\Stop_Controls.cs" />
      <Compile Include="Assets\Scripts\Touch_Controls.cs" />

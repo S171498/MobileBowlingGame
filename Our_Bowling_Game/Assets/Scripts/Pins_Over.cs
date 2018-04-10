@@ -166,7 +166,7 @@ public class Pins_Over : MonoBehaviour {
     {
         //pinsPanel.SetActive(false);
         pinsHit.text = "Spare";
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
     }
@@ -174,7 +174,7 @@ public class Pins_Over : MonoBehaviour {
     IEnumerator Strike()
     {
         strikePanel.SetActive(true);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

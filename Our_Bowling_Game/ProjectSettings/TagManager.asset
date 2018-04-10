@@ -8,6 +8,7 @@ TagManager:
   - OutofBounds
   - Stop
   - GutterBall
+  - PinBoundary
   layers:
   - Default
   - TransparentFX
