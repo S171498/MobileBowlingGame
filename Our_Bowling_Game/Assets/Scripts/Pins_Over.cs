@@ -7,25 +7,37 @@ using UnityEngine.SceneManagement;
 public class Pins_Over : MonoBehaviour {
 
     public int fallen = 0;
+    public int score = 0;
+    public int highScore = 0;
     public GameObject strikePanel;
-    //public GameObject pinsPanel;
+    public GameObject pinsPanel;
     public Text strikeText;
     public Text pinsHit;
+    public Text roundScore;
+    //public Text HighScore;
     public bool firstBowl;
     public bool secondBowl;
     public GameObject player;
+
+    public Vector3 playerPosition;  // Records player position at start of level
 
     // Use this for initialization
     void Start () {
 
         firstBowl = true;
         secondBowl = false;
-	}
+        highScore = PlayerPrefs.GetInt("highScore", +highScore);
+    }
 
     void Awake() {
-
+        playerPosition = player.transform.position;
         strikePanel.SetActive(false);
+        pinsPanel.SetActive(false);
         //pinsPanel.SetActive(true);
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Lane1"))
+        {
+            PlayerPrefs.DeleteAll();
+        }
     }
 	
 	// Update is called once per frame
@@ -33,7 +45,7 @@ public class Pins_Over : MonoBehaviour {
 
         if (fallen == 1 && firstBowl == true)
         {
-            StartCoroutine(FirstBowl());
+            FirstBall();
         }
         else if (fallen == 1 && secondBowl == true)
         {
@@ -42,7 +54,7 @@ public class Pins_Over : MonoBehaviour {
 
         if (fallen == 2 && firstBowl == true)
         {
-            StartCoroutine(FirstBowl());
+            FirstBall();
         }
         else if (fallen == 2 && secondBowl == true)
         {
@@ -51,7 +63,7 @@ public class Pins_Over : MonoBehaviour {
 
         if (fallen == 3 && firstBowl == true)
         {
-            StartCoroutine(FirstBowl());
+            FirstBall();
         }
         else if (fallen == 3 && secondBowl == true)
         {
@@ -60,7 +72,7 @@ public class Pins_Over : MonoBehaviour {
 
         if (fallen == 4 && firstBowl == true)
         {
-            StartCoroutine(FirstBowl());
+            FirstBall();
         }
         else if (fallen == 4 && secondBowl == true)
         {
@@ -69,7 +81,7 @@ public class Pins_Over : MonoBehaviour {
 
         if (fallen == 5 && firstBowl == true)
         {
-            StartCoroutine(FirstBowl());
+            FirstBall();
         }
         else if (fallen == 5 && secondBowl == true)
         {
@@ -78,7 +90,7 @@ public class Pins_Over : MonoBehaviour {
 
         if (fallen == 6 && firstBowl == true)
         {
-            StartCoroutine(FirstBowl());
+            FirstBall();
         }
         else if (fallen == 6 && secondBowl == true)
         {
@@ -87,7 +99,7 @@ public class Pins_Over : MonoBehaviour {
 
         if (fallen == 7 && firstBowl == true)
         {
-            StartCoroutine(FirstBowl());
+            FirstBall();
         }
         else if (fallen == 7 && secondBowl == true)
         {
@@ -96,7 +108,7 @@ public class Pins_Over : MonoBehaviour {
 
         if (fallen == 8 && firstBowl == true)
         {
-            StartCoroutine(FirstBowl());
+            FirstBall();
         }
         else if (fallen == 8 && secondBowl == true)
         {
@@ -105,7 +117,7 @@ public class Pins_Over : MonoBehaviour {
 
         if (fallen == 9 && firstBowl == true)
         {
-            StartCoroutine(FirstBowl());
+            FirstBall();
         }
         else if (fallen == 9 && secondBowl == true)
         {
@@ -119,47 +131,90 @@ public class Pins_Over : MonoBehaviour {
         }
         else if (fallen == 10 && secondBowl == true)
         {
-            StartCoroutine(LevelFinished());
+           StartCoroutine(Spare());
         }
 
-        PlayerPrefs.SetInt("Fallen", fallen);
+        roundScore.text = "Score " + score;
+        //HighScore.text = "High Score " + highScore;
 
+    }
+
+    public void FirstBall()
+    {
+        StartCoroutine(FirstBowl());
+    }
+
+<<<<<<< HEAD
+        pinsHit.text = "Pins " + fallen;
+        yield return new WaitForSeconds(5);
+        player.transform.position = new Vector3(1, 1, 1);
+=======
+    public void SecondBall()
+    {
+        //StartCoroutine(GutterBall());
+        StartCoroutine(SecondBowl());
+    }
+    
+    IEnumerator ShowPins()
+    {
+        pinsPanel.SetActive(true);
+        yield return new WaitForSeconds(2);
+        pinsPanel.SetActive(false);
     }
 
     IEnumerator FirstBowl()
     {
-
         pinsHit.text = "Pins " + fallen;
-        yield return new WaitForSeconds(5);
-        player.transform.position = new Vector3(1, 1, 1);
+        StartCoroutine(ShowPins());
+        yield return new WaitForSeconds(2);
+        player.transform.position = playerPosition;
+>>>>>>> Swipe_Movement_Controls
         firstBowl = false;
         secondBowl = true;
+        fallen = 0;
     }
 
     IEnumerator SecondBowl()
     {
         pinsHit.text = "Pins " + fallen;
+        StartCoroutine(ShowPins());
         Debug.Log("Pins " + fallen);
-        yield return new WaitForSeconds(5);
-        //SceneManager.LoadScene("Test_Scene", LoadSceneMode.Single);
+       yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    IEnumerator LevelFinished()
+    IEnumerator GutterBall()
+    {
+        StartCoroutine(ShowPins());
+        yield return new WaitForSeconds(2);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //player.transform.position = playerPosition;
+        secondBowl = true;
+        fallen = 0;
+    }
+
+    IEnumerator Spare()
     {
         //pinsPanel.SetActive(false);
-        yield return new WaitForSeconds(5);
-        SceneManager.LoadScene("Test_Scene", LoadSceneMode.Single);
+        pinsHit.text = "Spare";
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
     }
 
     IEnumerator Strike()
     {
         strikePanel.SetActive(true);
-        yield return new WaitForSeconds(5);
-        SceneManager.LoadScene("Test_Scene", LoadSceneMode.Single);
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     void OnTriggerExit(Collider other)
     {
         fallen ++;
+        score += 10;
+        highScore += 10;
+        PlayerPrefs.SetInt("highScore", highScore);
+        PlayerPrefs.Save();
     }
 }

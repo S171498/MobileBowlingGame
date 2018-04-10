@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: 6e654008c0c551d41b2f83f329e79d6f
-timeCreated: 1513273811
-licenseType: Store
+guid: bb9901b0be15f344b83208d788a374f8
+timeCreated: 1522071992
+licenseType: Free
 ModelImporter:
-  serializedVersion: 21
+  serializedVersion: 22
   fileIDToRecycleName:
     100000: default
     100002: //RootNode
@@ -12,10 +12,17 @@ ModelImporter:
     2300000: default
     3300000: default
     4300000: default
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: defaultMat
+    second: {fileID: 2100000, guid: 96b0e8bf64bc7714eae2cc61b6885d4f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -28,6 +35,7 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -39,7 +47,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.35
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
