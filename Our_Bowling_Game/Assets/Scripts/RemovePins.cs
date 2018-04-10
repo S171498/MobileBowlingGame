@@ -29,8 +29,8 @@ public class RemovePins : MonoBehaviour {
     {
         Debug.Log("Destroy");
         //this.GetComponent<BoxCollider>().enabled = false;
-        
-        yield return new WaitForSeconds(2);
+        //this.GetComponent<CapsuleCollider>().enabled = false;
+        yield return new WaitForSeconds(1);
         //Destroy(gameObject);
         gameObject.SetActive(false);
     }

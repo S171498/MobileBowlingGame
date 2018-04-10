@@ -10,7 +10,7 @@ public class Pins_Over : MonoBehaviour {
     public int score = 0;
     public int highScore = 0;
     public GameObject strikePanel;
-    //public GameObject pinsPanel;
+    public GameObject pinsPanel;
     public Text strikeText;
     public Text pinsHit;
     public Text roundScore;
@@ -32,6 +32,7 @@ public class Pins_Over : MonoBehaviour {
     void Awake() {
         playerPosition = player.transform.position;
         strikePanel.SetActive(false);
+        pinsPanel.SetActive(false);
         //pinsPanel.SetActive(true);
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Lane1"))
         {
@@ -143,9 +144,23 @@ public class Pins_Over : MonoBehaviour {
         StartCoroutine(FirstBowl());
     }
 
+    public void SecondBall()
+    {
+        //StartCoroutine(GutterBall());
+        StartCoroutine(SecondBowl());
+    }
+    
+    IEnumerator ShowPins()
+    {
+        pinsPanel.SetActive(true);
+        yield return new WaitForSeconds(2);
+        pinsPanel.SetActive(false);
+    }
+
     IEnumerator FirstBowl()
     {
         pinsHit.text = "Pins " + fallen;
+        StartCoroutine(ShowPins());
         yield return new WaitForSeconds(2);
         player.transform.position = playerPosition;
         firstBowl = false;
@@ -156,10 +171,20 @@ public class Pins_Over : MonoBehaviour {
     IEnumerator SecondBowl()
     {
         pinsHit.text = "Pins " + fallen;
+        StartCoroutine(ShowPins());
         Debug.Log("Pins " + fallen);
        yield return new WaitForSeconds(2);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 
+    IEnumerator GutterBall()
+    {
+        StartCoroutine(ShowPins());
+        yield return new WaitForSeconds(2);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //player.transform.position = playerPosition;
+        secondBowl = true;
+        fallen = 0;
     }
 
     IEnumerator Spare()

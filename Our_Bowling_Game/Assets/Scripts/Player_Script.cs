@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Player_Script: MonoBehaviour
 {
@@ -10,12 +11,15 @@ public class Player_Script: MonoBehaviour
 
     public Pins_Over pins_Over;
 
+    public bool FirstBall;
+    public bool SecondBall;
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
+        FirstBall = true;
+        SecondBall = false;
     }
 
     void FixedUpdate()
@@ -30,14 +34,29 @@ public class Player_Script: MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "GutterBall")
+        if (other.gameObject.tag == "GutterBall" && FirstBall == true)
         {
+            FirstBall = false;
             FirstBowl();
+        }
+        else if (other.gameObject.tag == "GutterBall" && FirstBall == false)
+        {
+            SecondBowl();
+            SecondBall = true;
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 
     public void FirstBowl()
     {
-        pins_Over.FirstBall();
+        pins_Over.FirstBall();   
+    }
+
+    public void SecondBowl()
+    {
+        if (SecondBall == true)
+        {
+            pins_Over.SecondBall();
+        }
     }
 }
