@@ -33,7 +33,7 @@ public class Pins_Over : MonoBehaviour {
         playerPosition = player.transform.position;
         strikePanel.SetActive(false);
         //pinsPanel.SetActive(true);
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Test_Scene"))
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Lane1"))
         {
             PlayerPrefs.DeleteAll();
         }
@@ -130,7 +130,7 @@ public class Pins_Over : MonoBehaviour {
         }
         else if (fallen == 10 && secondBowl == true)
         {
-            StartCoroutine(LevelFinished());
+           StartCoroutine(Spare());
         }
 
         roundScore.text = "Score " + score;
@@ -150,30 +150,32 @@ public class Pins_Over : MonoBehaviour {
         player.transform.position = playerPosition;
         firstBowl = false;
         secondBowl = true;
+        fallen = 0;
     }
 
     IEnumerator SecondBowl()
     {
         pinsHit.text = "Pins " + fallen;
         Debug.Log("Pins " + fallen);
-       yield return new WaitForSeconds(5);
-        //SceneManager.LoadScene("Test_Scene", LoadSceneMode.Single);
+       yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
     }
 
-    IEnumerator LevelFinished()
+    IEnumerator Spare()
     {
         //pinsPanel.SetActive(false);
         pinsHit.text = "Spare";
         yield return new WaitForSeconds(5);
-        SceneManager.LoadScene("New_Test", LoadSceneMode.Single);
-        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
     }
 
     IEnumerator Strike()
     {
         strikePanel.SetActive(true);
         yield return new WaitForSeconds(5);
-        SceneManager.LoadScene("New_Test", LoadSceneMode.Single);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     void OnTriggerExit(Collider other)
