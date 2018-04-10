@@ -8,9 +8,14 @@ public class Player_Script: MonoBehaviour
 
     private Rigidbody rb;
 
+    public Pins_Over pins_Over;
+
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
     }
 
     void FixedUpdate()
@@ -21,5 +26,18 @@ public class Player_Script: MonoBehaviour
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
         rb.AddForce(movement * speed);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "GutterBall")
+        {
+            FirstBowl();
+        }
+    }
+
+    public void FirstBowl()
+    {
+        pins_Over.FirstBall();
     }
 }

@@ -44,7 +44,7 @@ public class Pins_Over : MonoBehaviour {
 
         if (fallen == 1 && firstBowl == true)
         {
-            StartCoroutine(FirstBowl());
+            FirstBall();
         }
         else if (fallen == 1 && secondBowl == true)
         {
@@ -53,7 +53,7 @@ public class Pins_Over : MonoBehaviour {
 
         if (fallen == 2 && firstBowl == true)
         {
-            StartCoroutine(FirstBowl());
+            FirstBall();
         }
         else if (fallen == 2 && secondBowl == true)
         {
@@ -62,7 +62,7 @@ public class Pins_Over : MonoBehaviour {
 
         if (fallen == 3 && firstBowl == true)
         {
-            StartCoroutine(FirstBowl());
+            FirstBall();
         }
         else if (fallen == 3 && secondBowl == true)
         {
@@ -71,7 +71,7 @@ public class Pins_Over : MonoBehaviour {
 
         if (fallen == 4 && firstBowl == true)
         {
-            StartCoroutine(FirstBowl());
+            FirstBall();
         }
         else if (fallen == 4 && secondBowl == true)
         {
@@ -80,7 +80,7 @@ public class Pins_Over : MonoBehaviour {
 
         if (fallen == 5 && firstBowl == true)
         {
-            StartCoroutine(FirstBowl());
+            FirstBall();
         }
         else if (fallen == 5 && secondBowl == true)
         {
@@ -89,7 +89,7 @@ public class Pins_Over : MonoBehaviour {
 
         if (fallen == 6 && firstBowl == true)
         {
-            StartCoroutine(FirstBowl());
+            FirstBall();
         }
         else if (fallen == 6 && secondBowl == true)
         {
@@ -98,7 +98,7 @@ public class Pins_Over : MonoBehaviour {
 
         if (fallen == 7 && firstBowl == true)
         {
-            StartCoroutine(FirstBowl());
+            FirstBall();
         }
         else if (fallen == 7 && secondBowl == true)
         {
@@ -107,7 +107,7 @@ public class Pins_Over : MonoBehaviour {
 
         if (fallen == 8 && firstBowl == true)
         {
-            StartCoroutine(FirstBowl());
+            FirstBall();
         }
         else if (fallen == 8 && secondBowl == true)
         {
@@ -116,7 +116,7 @@ public class Pins_Over : MonoBehaviour {
 
         if (fallen == 9 && firstBowl == true)
         {
-            StartCoroutine(FirstBowl());
+            FirstBall();
         }
         else if (fallen == 9 && secondBowl == true)
         {
@@ -136,6 +136,11 @@ public class Pins_Over : MonoBehaviour {
         roundScore.text = "Score " + score;
         //HighScore.text = "High Score " + highScore;
 
+    }
+
+    public void FirstBall()
+    {
+        StartCoroutine(FirstBowl());
     }
 
     IEnumerator FirstBowl()
