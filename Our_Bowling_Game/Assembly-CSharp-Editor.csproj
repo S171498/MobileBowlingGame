@@ -90,7 +90,6 @@
      <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
      <None Include="Assets\Standard Assets\Fonts\OpenSans\License!.txt" />
      <None Include="Assets\Asset Packs\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\ChromaticAberrationShader.shader" />
-     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Asset Packs\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\GlobalFog.shader" />
      <None Include="Assets\Asset Packs\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Luminance.shader" />
      <None Include="Assets\Asset Packs\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionSelective.shader" />
@@ -130,6 +129,9 @@
      <None Include="Assets\Asset Packs\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset2.shader" />
      <None Include="Assets\Asset Packs\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
      <None Include="Assets\Asset Packs\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
+ <Reference Include="Assembly-CSharp-Editor-firstpass">
+ <HintPath>C:/Users/SStep/Desktop/Bowling/MobileBowlingGame/Our_Bowling_Game/Library/ScriptAssemblies/Assembly-CSharp-Editor-firstpass.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -220,8 +222,6 @@
       <Project>{D5959306-C82E-6782-22D1-01BD2AFED35F}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{D4CFA811-C06E-3AF2-3620-2208D9659877}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
-    <ProjectReference Include="Assembly-CSharp-Editor-firstpass.csproj">
-      <Project>{A62889D8-6481-3D01-37ED-E16AE2F968C4}</Project>      <Name>Assembly-CSharp-Editor-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

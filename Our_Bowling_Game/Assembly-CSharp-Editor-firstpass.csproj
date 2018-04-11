@@ -90,7 +90,6 @@
      <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
      <None Include="Assets\Standard Assets\Fonts\OpenSans\License!.txt" />
      <None Include="Assets\Asset Packs\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\ChromaticAberrationShader.shader" />
-     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Asset Packs\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\GlobalFog.shader" />
      <None Include="Assets\Asset Packs\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Luminance.shader" />
      <None Include="Assets\Asset Packs\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionSelective.shader" />
