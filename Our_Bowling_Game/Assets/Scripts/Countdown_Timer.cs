@@ -9,8 +9,6 @@ public class Countdown_Timer : MonoBehaviour
     public float timeReset;
     public float timeLeft;
     public Text countdownText;
-    public Pins_Over pins_Over;
-    public bool FirstBall;
 
     private void Awake()
     {
@@ -24,6 +22,11 @@ public class Countdown_Timer : MonoBehaviour
         if (timeLeft <= -0.5f)
         {
             SceneManager.LoadScene("Lane1", LoadSceneMode.Single);
+        }
+
+        if (timeLeft <= 10.5)
+        {
+            countdownText.color = new Color32(255, 0, 0, 255);
         }
     }
 
