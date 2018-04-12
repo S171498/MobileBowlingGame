@@ -10,6 +10,7 @@ public class Stop_Controls : MonoBehaviour {
     //public Touch_Controls touchScript;
     public Player_Script playerScript;
     public Pins_Over pinsScript;
+    public Countdown_Timer countdownScript;
     //public Test joystickScript;
     //public TapHold_Test tapHoldScript;
 
@@ -33,6 +34,7 @@ public class Stop_Controls : MonoBehaviour {
         if (other.gameObject.tag == "Player")
         {
             playerScript.enabled = false;
+            
             //touchScript.enabled = false;
             //joystickScript.enabled = false;
             //tapHoldScript.enabled = false;
@@ -44,6 +46,7 @@ public class Stop_Controls : MonoBehaviour {
         if (other.gameObject.tag == "Player")
         {
             playerScript.enabled = true;
+            countdownScript.ResetTimer();
             //touchScript.enabled = true;
             //joystickScript.enabled = true;
             //tapHoldScript.enabled = true;

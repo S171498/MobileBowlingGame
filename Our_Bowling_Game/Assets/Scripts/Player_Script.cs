@@ -10,6 +10,7 @@ public class Player_Script: MonoBehaviour
     private Rigidbody rb;
 
     public Pins_Over pins_Over;
+    
 
     public bool FirstBall;
     public bool SecondBall;

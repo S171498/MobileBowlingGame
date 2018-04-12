@@ -13,8 +13,8 @@ public class Pins_Over : MonoBehaviour {
     public GameObject pinsPanel;
     public Text strikeText;
     public Text pinsHit;
-    public Text roundScore;
-    //public Text HighScore;
+    //public Text roundScore;
+    public Text HighScore;
     public bool firstBowl;
     public bool secondBowl;
     public GameObject player;
@@ -134,8 +134,8 @@ public class Pins_Over : MonoBehaviour {
            StartCoroutine(Spare());
         }
 
-        roundScore.text = "Score " + score;
-        //HighScore.text = "High Score " + highScore;
+        //roundScore.text = "Score " + score;
+        HighScore.text = "Score " + highScore;
 
     }
 
@@ -159,8 +159,8 @@ public class Pins_Over : MonoBehaviour {
 
     IEnumerator FirstBowl()
     {
-        pinsHit.text = "Pins " + fallen;
-        StartCoroutine(ShowPins());
+        //pinsHit.text = "Pins " + fallen;
+        //StartCoroutine(ShowPins());
         yield return new WaitForSeconds(2);
         player.transform.position = playerPosition;
         firstBowl = false;
@@ -170,8 +170,8 @@ public class Pins_Over : MonoBehaviour {
 
     IEnumerator SecondBowl()
     {
-        pinsHit.text = "Pins " + fallen;
-        StartCoroutine(ShowPins());
+        //pinsHit.text = "Pins " + fallen;
+        //StartCoroutine(ShowPins());
         Debug.Log("Pins " + fallen);
        yield return new WaitForSeconds(2);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -193,7 +193,6 @@ public class Pins_Over : MonoBehaviour {
         pinsHit.text = "Spare";
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
     }
 
     IEnumerator Strike()
@@ -206,8 +205,8 @@ public class Pins_Over : MonoBehaviour {
     void OnTriggerExit(Collider other)
     {
         fallen ++;
-        score += 10;
-        highScore += 10;
+        score += 1;
+        highScore += 1;
         PlayerPrefs.SetInt("highScore", highScore);
         PlayerPrefs.Save();
     }

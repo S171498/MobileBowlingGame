@@ -129,9 +129,6 @@
      <None Include="Assets\Asset Packs\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset2.shader" />
      <None Include="Assets\Asset Packs\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
      <None Include="Assets\Asset Packs\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
- <Reference Include="Assembly-CSharp-Editor-firstpass">
- <HintPath>C:/Users/SStep/Desktop/Bowling/MobileBowlingGame/Our_Bowling_Game/Library/ScriptAssemblies/Assembly-CSharp-Editor-firstpass.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
