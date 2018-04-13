@@ -300,10 +300,6 @@
       <Project>{2D6F2F01-5CFD-5172-60F0-2AD7737E9FBB}</Project>
       <Name>Our_Bowling_Game</Name>
     </ProjectReference>
-    <ProjectReference Include="Our_Bowling_Game.Editor.Plugins.csproj">
-      <Project>{C8D4A968-6CD9-49C8-850C-A5C2AA6B3250}</Project>
-      <Name>Our_Bowling_Game.Editor.Plugins</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Asset Packs\LowPolyWater_Pack\Scripts\Editor\GeneratePlane.cs" />
@@ -380,7 +376,6 @@
     <None Include="Assets\Asset Packs\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
     <None Include="Assets\Asset Packs\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\TiltShiftHdrLensBlur.shader" />
     <None Include="Assets\Asset Packs\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\frag_ao.cginc" />
-    <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
     <None Include="Assets\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
     <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />

@@ -248,15 +248,13 @@
     <Compile Include="Assets\Asset Packs\POLY STYLE - Vegetation Pack\Script\TakeScreenshot.cs" />
     <Compile Include="Assets\Scripts\Camera_Controller.cs" />
     <Compile Include="Assets\Scripts\Countdown_Timer.cs" />
-    <Compile Include="Assets\Scripts\DDOL.cs" />
-    <Compile Include="Assets\Scripts\Mouse_Drag_Test.cs" />
-    <Compile Include="Assets\Scripts\Move_ball.cs" />
+    <Compile Include="Assets\Scripts\MovingObstacle.cs" />
     <Compile Include="Assets\Scripts\Pins_Over.cs" />
     <Compile Include="Assets\Scripts\Player_Script.cs" />
     <Compile Include="Assets\Scripts\RemovePins.cs" />
+    <Compile Include="Assets\Scripts\RestartAndQuit.cs" />
     <Compile Include="Assets\Scripts\Score.cs" />
     <Compile Include="Assets\Scripts\Stop_Controls.cs" />
-    <Compile Include="Assets\Scripts\Touch_Controls.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Asset Packs\Free Low Poly Desert Pack\Materials\Shaders\Vertex_Color_Basic.shader" />
@@ -330,7 +328,6 @@
     <None Include="Assets\Asset Packs\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
     <None Include="Assets\Asset Packs\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\TiltShiftHdrLensBlur.shader" />
     <None Include="Assets\Asset Packs\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\frag_ao.cginc" />
-    <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
     <None Include="Assets\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
     <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />
