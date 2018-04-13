@@ -9,6 +9,8 @@ TagManager:
   - Stop
   - GutterBall
   - PinBoundary
+  - MoveLeft
+  - MoveRight
   layers:
   - Default
   - TransparentFX
