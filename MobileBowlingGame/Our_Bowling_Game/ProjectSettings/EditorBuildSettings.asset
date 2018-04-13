@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 05f76b6fdf07e49418c9c2b0d6cccc3f
+  - enabled: 0
+    path: 
+    guid: bc23a4ada3a7cf24bb721e5324f3e9df
+  - enabled: 1
+    path: Assets/Levels/Level 1/Lane1.unity
+    guid: 6c9d11e480516134ab49d9b6d9643c97
+  - enabled: 1
+    path: Assets/Levels/Level 1/Lane2.unity
+    guid: 0d9e0807ba753a8488d709e39f1f888d
