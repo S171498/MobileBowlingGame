@@ -1,18 +1,24 @@
 fileFormatVersion: 2
-guid: 80d460085e303c848b513ed27218f2db
-timeCreated: 1524041553
+guid: 89b38d97c49934f4daff6aaa8ab406ca
+timeCreated: 1524480772
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: default
-    100002: //RootNode
-    400000: default
-    400002: //RootNode
-    2100000: defaultMat
-    2300000: default
-    3300000: default
-    4300000: default
+    100000: //RootNode
+    100002: Bowling_Pin_HighRez
+    100004: Bowling_Pin_LowRez
+    400000: //RootNode
+    400002: Bowling_Pin_HighRez
+    400004: Bowling_Pin_LowRez
+    2100000: Bowling_Pin_HighRezMat
+    2100002: Bowling_Pin_LowRezMat
+    2300000: Bowling_Pin_HighRez
+    2300002: Bowling_Pin_LowRez
+    3300000: Bowling_Pin_HighRez
+    3300002: Bowling_Pin_LowRez
+    4300000: Bowling_Pin_HighRez
+    4300002: Bowling_Pin_LowRez
   externalObjects: {}
   materials:
     importMaterials: 1

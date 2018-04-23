@@ -1,18 +1,16 @@
 fileFormatVersion: 2
-guid: e281334485c53fb45a0a36137b94fcac
-timeCreated: 1524040190
+guid: eb9b92900c5c0f74eaa33dc7d0f44b1e
+timeCreated: 1524480768
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: default
-    100002: //RootNode
-    400000: default
-    400002: //RootNode
-    2100000: defaultMat
-    2300000: default
-    3300000: default
-    4300000: default
+    100000: //RootNode
+    400000: //RootNode
+    2100000: Orange_Bowli
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Sphere
   externalObjects: {}
   materials:
     importMaterials: 1
