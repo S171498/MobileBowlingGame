@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Pins
   - Boost
+  - Stop
   layers:
   - Default
   - TransparentFX

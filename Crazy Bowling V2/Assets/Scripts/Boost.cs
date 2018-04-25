@@ -1,35 +1,32 @@
-﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.SceneManagement;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class Player_Script : MonoBehaviour
-{
+public class Boost : MonoBehaviour {
+
     public float boostTime = 1f;
-    public float boostPower = 5f;
+    public float boostPower = 0f;
     public float Timer = 0f;
     public bool boostActive = false;
     public float speed;
     public Transform ballSpawn;
     private Rigidbody rb;
 
+    // Use this for initialization
+    void Start () {
 
-    void Start()
-    {
         rb = GetComponent<Rigidbody>();
     }
+	
+	// Update is called once per frame
+	void Update () {
 
-    void FixedUpdate()
-    {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-
-        rb.AddForce(movement * speed);
+        
 
         if (boostActive == true)
         {
             Timer += Time.deltaTime;
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
 
         if (Timer >= boostTime)
@@ -57,5 +54,4 @@ public class Player_Script : MonoBehaviour
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
     }
-
 }

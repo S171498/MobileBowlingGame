@@ -63,6 +63,7 @@
      <Compile Include="Assets\Asset Packs\Standard Assets\Environment\Water\Water\Scripts\WaterBase.cs" />
      <Compile Include="Assets\Asset Packs\Standard Assets\Environment\Water\Water\Scripts\WaterTile.cs" />
      <Compile Include="Assets\Scripts\BallReturn.cs" />
+     <Compile Include="Assets\Scripts\Boost.cs" />
      <Compile Include="Assets\Scripts\Camera_Controller.cs" />
      <Compile Include="Assets\Scripts\Mobile_Controls.cs" />
      <Compile Include="Assets\Scripts\Player_Script.cs" />
@@ -70,6 +71,7 @@
      <Compile Include="Assets\Scripts\RestartAndQuit.cs" />
      <Compile Include="Assets\Scripts\ScoreKeeper.cs" />
      <Compile Include="Assets\Scripts\ShowScore.cs" />
+     <Compile Include="Assets\Scripts\Stop_Ball.cs" />
      <None Include="Assets\Asset Packs\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Asset Packs\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\Asset Packs\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
