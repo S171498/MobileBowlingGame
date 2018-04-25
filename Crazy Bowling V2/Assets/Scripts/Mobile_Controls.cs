@@ -27,7 +27,7 @@ public class Mobile_Controls : MonoBehaviour {
 
         if (Timer >= boostTime)
         {
-            speed = speed * 2;
+            speed = 5f;
             Timer = 0f;
             boostActive = false;
         }
