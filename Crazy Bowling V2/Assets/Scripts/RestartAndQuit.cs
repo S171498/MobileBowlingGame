@@ -13,14 +13,9 @@ public class RestartAndQuit : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKeyDown("r"))
-        {
-            SceneManager.LoadScene("Lane1", LoadSceneMode.Single);
-        }
-
         if (Input.GetKeyDown("escape"))
         {
-            Application.Quit();
+            SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
         }
     }
 }
