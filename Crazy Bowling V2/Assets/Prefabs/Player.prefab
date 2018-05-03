@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 135415839621193356}
   - component: {fileID: 135665220887321120}
   - component: {fileID: 23931138815915694}
-  - component: {fileID: 114902407174345092}
   - component: {fileID: 33113428113919104}
   - component: {fileID: 114670461326633088}
   m_Layer: 0
@@ -185,27 +184,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3c490caf59146c4cbbe3bcd4c32ac7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
   boostTime: 1
   boostPower: 30
   Timer: 0
+  timer: {fileID: 0}
   boostActive: 0
+  speed: 5
   ballSpawn: {fileID: 0}
---- !u!114 &114902407174345092
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1030500951449666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0c0ec4098c68147bfbe58e5b1ac3f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  pins_Over: {fileID: 0}
-  FirstBall: 0
-  SecondBall: 0
+  _ScoreKeeper: {fileID: 0}
 --- !u!135 &135415839621193356
 SphereCollider:
   m_ObjectHideFlags: 1
