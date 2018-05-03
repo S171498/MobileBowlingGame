@@ -7,7 +7,7 @@ public class BallReturn : MonoBehaviour {
     public int _ball = 0;
     bool doUpdate = false;
 
-    void LateUpdate()
+    public void LateUpdate()
     {
         if(doUpdate)
         {
@@ -20,7 +20,7 @@ public class BallReturn : MonoBehaviour {
 
     public IEnumerator DelayUpdate()
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1f);
         gameObject.SendMessage("UpdateScore", _ball, SendMessageOptions.RequireReceiver);
         yield return 0;
     }
@@ -34,7 +34,8 @@ public class BallReturn : MonoBehaviour {
         }
     }
 
-    void ResetFrame()
+    //Resets all pins to be back at the start point and resets the frame back to zero.
+    public void ResetFrame()
     {
         foreach(var v in GameObject.FindGameObjectsWithTag("Pins"))
         {

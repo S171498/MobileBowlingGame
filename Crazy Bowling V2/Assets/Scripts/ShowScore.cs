@@ -13,12 +13,12 @@ public class ShowScore : MonoBehaviour {
 
     void Update()
     {
-        frame.text = "Frame: " + _ScoreKeeper._Frame.ToString();
+        frame.text = "Turn: " + _ScoreKeeper._Frame.ToString();
         score.text = "Score: " + _ScoreKeeper._Score.ToString();
-        ball.text = "Ball: " + _ScoreKeeper._FrameBall.ToString();
-        frame.text = "Frame: " + _ScoreKeeper2._Frame.ToString();
+        ball.text = "Bowl: " + _ScoreKeeper._FrameBall.ToString();
+        frame.text = "Turn: " + _ScoreKeeper2._Frame.ToString();
         score.text = "Score: " + _ScoreKeeper2._Score.ToString();
-        ball.text = "Ball: " + _ScoreKeeper2._FrameBall.ToString();
+        ball.text = "Bowl: " + _ScoreKeeper2._FrameBall.ToString();
     }
 
 }

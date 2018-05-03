@@ -1,21 +1,36 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player_Script : MonoBehaviour
 {
     public float boostTime = 1f;
     public float boostPower = 5f;
-    public float Timer = 0f;
+    public float Timer = 0;
+    public Text timer;
     public bool boostActive = false;
     public float speed;
     public Transform ballSpawn;
     private Rigidbody rb;
-
+    public ScoreKeeper _ScoreKeeper;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        Timer = 30f;
+    }
+
+    void Update()
+    {
+        if (_ScoreKeeper._Frame == 10)
+        {
+            SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        }
+        Timer -= Time.deltaTime;
+
+        timer.text = "Time Left: " + Timer.ToString();
+
     }
 
     void FixedUpdate()
@@ -26,28 +41,6 @@ public class Player_Script : MonoBehaviour
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
         rb.AddForce(movement * speed);
-
-        if (boostActive == true)
-        {
-            Timer += Time.deltaTime;
-        }
-
-        if (Timer >= boostTime)
-        {
-            speed = 5f;
-            Timer = 0f;
-            boostActive = false;
-        }
-
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Boost")
-        {
-            speed = boostPower;
-            boostActive = true;
-        }
     }
 
     public void Reset(object _ball)
