@@ -1,11 +1,42 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BallReturn : MonoBehaviour {
 
     public int _ball = 0;
-    bool doUpdate = false;
+    public bool doUpdate = false;
+    public ScoreKeeper _ScoreKeeper;
+
+    public float GameTimer = 0;
+    public Text timer;
+
+    // Use this for initialization
+    void Start()
+    {
+
+        GameTimer = 30f;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        GameTimer -= Time.deltaTime;
+
+        timer.text = "Time Left: " + GameTimer.ToString("N0");
+
+        if (GameTimer < 1 )
+        {
+            doUpdate = true;
+        }
+
+        if(GameTimer < 10 )
+        {
+            timer.color = Color.red;
+        }
+    }
 
     public void LateUpdate()
     {
@@ -14,6 +45,7 @@ public class BallReturn : MonoBehaviour {
             _ball += 1;
             _ball = _ball % 3;
             StartCoroutine(DelayUpdate());
+            GameTimer = 30;
         }
         doUpdate = false;
     }
@@ -22,8 +54,11 @@ public class BallReturn : MonoBehaviour {
     {
         yield return new WaitForSeconds(1f);
         gameObject.SendMessage("UpdateScore", _ball, SendMessageOptions.RequireReceiver);
+        GameTimer = 30f;
         yield return 0;
+        
     }
+
 
     void OnTriggerEnter(Collider other)
     {

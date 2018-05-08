@@ -7,8 +7,6 @@ public class Player_Script : MonoBehaviour
 {
     public float boostTime = 1f;
     public float boostPower = 5f;
-    public float Timer = 0;
-    public Text timer;
     public bool boostActive = false;
     public float speed;
     public Transform ballSpawn;
@@ -18,7 +16,7 @@ public class Player_Script : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        Timer = 30f;
+        
     }
 
     void Update()
@@ -27,9 +25,7 @@ public class Player_Script : MonoBehaviour
         {
             SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
         }
-        Timer -= Time.deltaTime;
-
-        timer.text = "Time Left: " + Timer.ToString();
+      
 
     }
 

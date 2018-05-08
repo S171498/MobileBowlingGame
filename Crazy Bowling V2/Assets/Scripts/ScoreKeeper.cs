@@ -10,6 +10,7 @@ public class ScoreKeeper : MonoBehaviour {
     public int _Down;
     public int _FrameBall = 0;
     public int _Score;
+    public BallReturn _BallReturn;
 
     HashSet<int> DownPins = new HashSet<int>();
 
@@ -18,6 +19,15 @@ public class ScoreKeeper : MonoBehaviour {
         DownPins.Clear();
         Frames.Add(new BowlingFrame(0));
     }
+
+   /* void Update()
+    {
+        if(_BallReturn.GameTimer < 0)
+        {
+            _BallReturn.GameTimer = 30;
+            NewFrame();
+        }
+    }*/
 
     int getDownPins()
     {
