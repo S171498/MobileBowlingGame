@@ -8,23 +8,24 @@ public class BallReturn : MonoBehaviour {
     public int _ball = 0;
     public bool doUpdate = false;
 
-    public float GameTimer = 0;
-    public Text timer;
+    
+    // public float GameTimer = 0; Code for the game timer has been commented out for now as it has been moved to the ScoreKeeper script 
+    // public Text timer;
 
     // Use this for initialization
     void Start()
     {
 
-        GameTimer = 30f;
+       // GameTimer = 30f;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        /*
         GameTimer -= Time.deltaTime;
 
-        timer.text = "Time Left: " + GameTimer.ToString("N0");
+       timer.text = "Time Left: " + GameTimer.ToString("N0");
 
         if (GameTimer < 1 )
         {
@@ -40,6 +41,7 @@ public class BallReturn : MonoBehaviour {
         {
             timer.color = Color.blue;
         }
+        */
     }
 
     public void LateUpdate()
@@ -49,7 +51,7 @@ public class BallReturn : MonoBehaviour {
             _ball += 1;
             _ball = _ball % 3;
             StartCoroutine(DelayUpdate());
-            GameTimer = 30;
+            // GameTimer = 30;
         }
         doUpdate = false;
     }
@@ -58,7 +60,7 @@ public class BallReturn : MonoBehaviour {
     {
         yield return new WaitForSeconds(1f);
         gameObject.SendMessage("UpdateScore", _ball, SendMessageOptions.RequireReceiver);
-        GameTimer = 30f;
+       // GameTimer = 30f;
         yield return 0;
         
     }

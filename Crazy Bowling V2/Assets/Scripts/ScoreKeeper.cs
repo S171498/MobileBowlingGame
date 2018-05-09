@@ -1,33 +1,69 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreKeeper : MonoBehaviour {
 
-    public List<BowlingFrame> Frames = new List<BowlingFrame>();
+    public List<Start> Frames = new List<Start>();
 
     public int _Frame;
     public int _Down;
     public int _FrameBall = 0;
     public int _Score;
-    public BallReturn _BallReturn;
+    public float Timer;
+    public static int Multiplier;
+    public int MultiplierShow;
+
+    public Text TimerText;
+    public Text MultiplierText;
+    
+    // public BallReturn _BallReturn; May no longer be needed?
 
     HashSet<int> DownPins = new HashSet<int>();
 
     void Start()
     {
         DownPins.Clear();
-        Frames.Add(new BowlingFrame(0));
+        Frames.Add(new Start(0));
+        Timer = 0;
+        Multiplier = 3;
     }
 
-   /* void Update()
+  void Update()
     {
+
+        TimerText.text = "Time: " + Timer.ToString("N0");
+        MultiplierText.text = "Multipler: " + Multiplier.ToString();
+
+        MultiplierShow = Multiplier;
+        
+        // Timer will increase every second, if the timer reaches a certain amount then the multiplier will decrease
+        Timer += Time.deltaTime;
+        if (Timer < 15)
+        {
+            Multiplier = 3;
+        }
+        if (Timer >= 15)
+        {
+            Multiplier = 2;
+        }
+        if (Timer >= 30)
+        {
+            Multiplier = 1;
+        }
+
+
+        /* Commenting this out, may no longer be needed? 
         if(_BallReturn.GameTimer < 0)
         {
             _BallReturn.GameTimer = 30;
             NewFrame();
         }
-    }*/
+        */
+
+    
+    }
 
     int getDownPins()
     {
@@ -59,7 +95,7 @@ public class ScoreKeeper : MonoBehaviour {
     {
         //Gets all down pins and updates the score and the frame.
         _Down = getDownPins();
-        BowlingFrame bf = Frames[Frames.Count - 1].AddScore(_FrameBall, _Down);
+        Start bf = Frames[Frames.Count - 1].AddScore(_FrameBall, _Down);
         _FrameBall += 1;
 
         if (bf != null)
@@ -76,23 +112,24 @@ public class ScoreKeeper : MonoBehaviour {
         _Frame = Frames.Count;
         DownPins.Clear();
         gameObject.SendMessage("ResetFrame", SendMessageOptions.RequireReceiver);
-        _Score = BowlingFrame.Score(Frames);
+        _Score = global::Start.Score(Frames);
+        Timer = 0; // This will only reset the timer and multiplier after the 2nd shot
     }
 
 }
 
-public class BowlingFrame
+public class Start
 {
     int Score1 = 0;
     int Score2 = 0;
     int Carry;
-
-    public BowlingFrame(int carries)
+    
+    public Start(int carries)
     {
         Carry = carries;
     }
 
-    public BowlingFrame AddScore(int ball, int score)
+    public Start AddScore(int ball, int score)
     {
         if (ball == 0)
         {
@@ -100,7 +137,7 @@ public class BowlingFrame
             Score1 = Mathf.Max(score, 0);
             if(score == 10)
             {
-                return new BowlingFrame(2);
+                return new Start(2);
             }
             return null;
         }
@@ -110,19 +147,19 @@ public class BowlingFrame
             Score2 = score - Score1;    
             if(Score1 + Score2 == 10)
             {
-                return new BowlingFrame(1);
+                return new Start(1);
             }
-            return new BowlingFrame(0);
+            return new Start(0);
         }
     }
 
-    public static int Score(IEnumerable<BowlingFrame> frames)
+    public static int Score(IEnumerable<Start> frames)
     {
         int score = 0;
-        foreach (BowlingFrame f in frames)
+        foreach (Start f in frames)
         {
-            score += f.Score1;
-            score += f.Score2;
+            score += f.Score1 * ScoreKeeper.Multiplier; // Will multiply the first shot with the multiplier (Buggy, doesn't work properly, where else does the score work?)
+            score += f.Score2;                          // However should only add the amount knocked down for the second shot
             if (f.Carry > 0) score += f.Score1;
             if (f.Carry > 1) score += f.Score2;
         }
