@@ -851,8 +851,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 285852284}
-  m_LocalRotation: {x: -0.26053804, y: 0.57161295, z: 0.19792087, w: 0.75246656}
-  m_LocalPosition: {x: 109.61042, y: 87.964874, z: -110.804855}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 111.288124, y: 90.00305, z: -147.66603}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2087212223}
@@ -2653,7 +2653,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ball: 0
   doUpdate: 0
-  _ScoreKeeper: {fileID: 0}
   GameTimer: 0
   timer: {fileID: 0}
 --- !u!4 &1380750192
@@ -2753,7 +2752,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ball: 0
   doUpdate: 0
-  _ScoreKeeper: {fileID: 1394483251}
   GameTimer: 0
   timer: {fileID: 1794699714}
 --- !u!114 &1394483251

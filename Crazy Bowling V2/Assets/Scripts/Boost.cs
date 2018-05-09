@@ -9,7 +9,6 @@ public class Boost : MonoBehaviour {
     public float Timer = 0f;
     public bool boostActive = false;
     public float speed;
-    public Transform ballSpawn;
     private Rigidbody rb;
 
     // Use this for initialization
@@ -45,13 +44,5 @@ public class Boost : MonoBehaviour {
             speed = boostPower;
             boostActive = true;
         }
-    }
-
-    public void Reset(object _ball)
-    {
-        gameObject.transform.position = ballSpawn.position;
-        gameObject.transform.rotation = ballSpawn.rotation;
-        gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
     }
 }

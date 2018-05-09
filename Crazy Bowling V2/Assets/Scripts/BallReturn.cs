@@ -7,7 +7,6 @@ public class BallReturn : MonoBehaviour {
 
     public int _ball = 0;
     public bool doUpdate = false;
-    public ScoreKeeper _ScoreKeeper;
 
     public float GameTimer = 0;
     public Text timer;
@@ -36,6 +35,11 @@ public class BallReturn : MonoBehaviour {
         {
             timer.color = Color.red;
         }
+
+        if(GameTimer > 10)
+        {
+            timer.color = Color.blue;
+        }
     }
 
     public void LateUpdate()
@@ -58,7 +62,6 @@ public class BallReturn : MonoBehaviour {
         yield return 0;
         
     }
-
 
     void OnTriggerEnter(Collider other)
     {

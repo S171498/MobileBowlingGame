@@ -25,8 +25,6 @@ public class Player_Script : MonoBehaviour
         {
             SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
         }
-      
-
     }
 
     void FixedUpdate()
