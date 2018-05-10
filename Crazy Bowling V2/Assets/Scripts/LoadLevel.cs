@@ -19,11 +19,7 @@ public class LoadLevel : MonoBehaviour {
 
     public void LoadLane1()
     {
-        SceneManager.LoadScene("Lanes_TEST_LANELENGTHS", LoadSceneMode.Single);
+        SceneManager.LoadScene("Lane_Level_01", LoadSceneMode.Single);
     }
 
-    public void LoadLane2()
-    {
-        SceneManager.LoadScene("Lanes_TEST_OBSTACLETYPES", LoadSceneMode.Single);
-    }
 }

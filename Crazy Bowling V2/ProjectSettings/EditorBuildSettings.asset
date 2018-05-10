@@ -5,15 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Levels/Lane1/Lane1.unity
-    guid: bce515c7179ab6c498c4941d2c54797b
   - enabled: 1
     path: Assets/Levels/MainMenu.unity
     guid: 80c2a989b66d7c749a7d2c629b367709
   - enabled: 1
-    path: Assets/Levels/Lanes_TEST_LANELENGTHS.unity
-    guid: ca58c8ab700b72840930e6b4fb041e3b
-  - enabled: 1
-    path: Assets/Levels/Lanes_TEST_OBSTACLETYPES.unity
-    guid: aacea7e95cba64549ac62a3b728d1613
+    path: Assets/Levels/Lane_Level_01.unity
+    guid: 2d4f573f88e150a41a57d486d57f63d6
