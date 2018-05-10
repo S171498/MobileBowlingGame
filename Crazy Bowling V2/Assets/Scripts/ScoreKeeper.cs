@@ -11,6 +11,7 @@ public class ScoreKeeper : MonoBehaviour {
     public int _Down;
     public int _FrameBall = 0;
     public int _Score;
+    public int ScoreHolder;
     public float Timer;
     public static int Multiplier;
     public int MultiplierShow;
@@ -78,13 +79,13 @@ public class ScoreKeeper : MonoBehaviour {
 
                 if (uv.y < .707)
                 {
-                    down += 1;
+                    down += 1 * Multiplier; // Multiplies using the current multiplier to add to the score
                 }
                 continue;
             }
             if(g.transform.position.y < 0 || g.transform.position.z > 1 || g.transform.position.z > -1)
             {
-                down += 1;
+                down += 1 * Multiplier;     // Same as above
                 continue;
             }            
         }
@@ -135,7 +136,7 @@ public class Start
         {
             //Checks if the score is 10 then adds a new frame.
             Score1 = Mathf.Max(score, 0);
-            if(score == 10)
+            if(score == 30)
             {
                 return new Start(2);
             }
@@ -158,8 +159,8 @@ public class Start
         int score = 0;
         foreach (Start f in frames)
         {
-            score += f.Score1 * ScoreKeeper.Multiplier; // Will multiply the first shot with the multiplier (Buggy, doesn't work properly, where else does the score work?)
-            score += f.Score2;                          // However should only add the amount knocked down for the second shot
+            score += f.Score1;
+            score += f.Score2;
             if (f.Carry > 0) score += f.Score1;
             if (f.Carry > 1) score += f.Score2;
         }
