@@ -21,7 +21,7 @@ public class Player_Script : MonoBehaviour
 
     void Update()
     {
-        if (_ScoreKeeper._Frame == 10)
+        if (_ScoreKeeper._Frame > 10)
         {
             Debug.Log("Frame is at 10 and level is finished");
             SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);

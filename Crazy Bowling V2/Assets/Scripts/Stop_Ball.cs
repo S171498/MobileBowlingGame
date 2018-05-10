@@ -5,6 +5,7 @@ using UnityEngine;
 public class Stop_Ball : MonoBehaviour {
 
     public Player_Script _Player_Script;
+    public Camera_Controller _Camera_Controller;
     public Transform ballSpawn;
 
     // Use this for initialization
@@ -23,6 +24,12 @@ public class Stop_Ball : MonoBehaviour {
         if (other.gameObject.tag == "Stop")
         {
             _Player_Script.enabled = false;
+            _Camera_Controller.enabled = false;
+        }
+
+        if(other.gameObject.tag == "CameraReset")
+        {
+            _Camera_Controller.enabled = true;
         }
     }
 
