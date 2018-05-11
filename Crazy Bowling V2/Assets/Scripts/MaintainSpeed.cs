@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MaintainSpeed : MonoBehaviour {
 
-    public int constantSpeed = 5;
+    public int constantSpeed = 0;
     private Rigidbody rb;
 
     // Use this for initialization
