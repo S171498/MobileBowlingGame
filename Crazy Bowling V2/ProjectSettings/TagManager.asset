@@ -8,6 +8,7 @@ TagManager:
   - Boost
   - Stop
   - CameraReset
+  - Explosion
   layers:
   - Default
   - TransparentFX

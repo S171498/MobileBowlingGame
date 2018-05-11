@@ -41,11 +41,4 @@ public class Stop_Ball : MonoBehaviour {
         }
     }
 
-    public void Reset(object _ball)
-    {
-        gameObject.transform.position = ballSpawn.position;
-        gameObject.transform.rotation = ballSpawn.rotation;
-        gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-    }
 }

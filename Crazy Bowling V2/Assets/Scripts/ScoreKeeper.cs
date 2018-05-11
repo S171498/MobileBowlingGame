@@ -18,7 +18,8 @@ public class ScoreKeeper : MonoBehaviour {
 
     public Text TimerText;
     public Text MultiplierText;
-    
+
+
     // public BallReturn _BallReturn; May no longer be needed?
 
     HashSet<int> DownPins = new HashSet<int>();
@@ -125,6 +126,7 @@ public class Start
     int Score2 = 0;
     int Carry;
     
+
     public Start(int carries)
     {
         Carry = carries;
@@ -138,7 +140,7 @@ public class Start
             Score1 = Mathf.Max(score, 0);
             if(score == 30)
             {
-                return new Start(2);
+                return new Start(2);   
             }
             return null;
         }
