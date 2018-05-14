@@ -68,6 +68,7 @@
      <Compile Include="Assets\ProCore\ProBuilder\API Examples\Procedural Mesh\ExtrudeRandomEdges.cs" />
      <Compile Include="Assets\ProCore\ProBuilder\API Examples\Runtime Editing\RuntimeEdit.cs" />
      <Compile Include="Assets\ProCore\ProBuilder\API Examples\Vertex Colors\HighlightNearestFace.cs" />
+     <Compile Include="Assets\Scripts\Area_Control.cs" />
      <Compile Include="Assets\Scripts\BallReturn.cs" />
      <Compile Include="Assets\Scripts\Boost.cs" />
      <Compile Include="Assets\Scripts\Camera_Controller.cs" />

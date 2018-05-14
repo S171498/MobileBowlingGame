@@ -138,7 +138,7 @@ public class Start
         {
             //Checks if the score is 10 then adds a new frame.
             Score1 = Mathf.Max(score, 0);
-            if(score == 30)
+            if(score >= 10)
             {
                 return new Start(2);   
             }
@@ -148,7 +148,7 @@ public class Start
         {
             //This does the same as above but it checks if both scores added are equal to 10.
             Score2 = score - Score1;    
-            if(Score1 + Score2 == 10)
+            if(Score1 + Score2 >= 10)
             {
                 return new Start(1);
             }

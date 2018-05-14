@@ -20,7 +20,6 @@ public class ParticleStart : MonoBehaviour {
         {
             _ParticleSystem1.Play();
             _ParticleSystem2.Play();
-            pinCount = 0;
         }
 	}
 
@@ -28,7 +27,7 @@ public class ParticleStart : MonoBehaviour {
     {
         if(other.gameObject.tag == "Pins")
         {
-            pinCount--;
+            pinCount++;
         }
     }
 
@@ -36,7 +35,7 @@ public class ParticleStart : MonoBehaviour {
     {
         if(other.gameObject.tag == "Pins")
         {
-            pinCount++;
+            pinCount--;
         }
 
     }

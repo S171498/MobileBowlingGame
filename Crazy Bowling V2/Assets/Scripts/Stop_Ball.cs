@@ -6,11 +6,14 @@ public class Stop_Ball : MonoBehaviour {
 
     public Player_Script _Player_Script;
     public Camera_Controller _Camera_Controller;
+    public Area_Control _Area_Control;
+
     public Transform ballSpawn;
 
     // Use this for initialization
     void Start()
     {
+        _Area_Control.enabled = false;
     }
 
     // Update is called once per frame
@@ -25,6 +28,7 @@ public class Stop_Ball : MonoBehaviour {
         {
             _Player_Script.enabled = false;
             _Camera_Controller.enabled = false;
+            _Area_Control.enabled = true;
         }
 
         if(other.gameObject.tag == "CameraReset")

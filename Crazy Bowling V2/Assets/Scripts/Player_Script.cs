@@ -49,7 +49,7 @@ public class Player_Script : MonoBehaviour
 
     public IEnumerator SpawnBall()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         gameObject.transform.position = ballSpawn.position;
         gameObject.transform.rotation = ballSpawn.rotation;
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;

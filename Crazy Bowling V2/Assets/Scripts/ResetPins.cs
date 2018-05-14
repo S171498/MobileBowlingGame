@@ -24,7 +24,7 @@ public class ResetPins : MonoBehaviour {
 
     public IEnumerator SpawnPins()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         gameObject.transform.position = position;
         gameObject.transform.rotation = rotation;
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
