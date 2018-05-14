@@ -5,7 +5,6 @@ using UnityEngine;
 public class ParticleStart : MonoBehaviour {
 
     public ParticleSystem _ParticleSystem1;
-    public ParticleSystem _ParticleSystem2;
     public int pinCount;
 
     // Use this for initialization
@@ -19,7 +18,11 @@ public class ParticleStart : MonoBehaviour {
         if(pinCount <= 0)
         {
             _ParticleSystem1.gameObject.SetActive(true);
-            _ParticleSystem2.Play();
+        }
+
+        if(pinCount == 10)
+        {
+            _ParticleSystem1.gameObject.SetActive(false);
         }
 	}
 
