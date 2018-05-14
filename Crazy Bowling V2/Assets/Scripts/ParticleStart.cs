@@ -16,9 +16,9 @@ public class ParticleStart : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if(pinCount == 0)
+        if(pinCount <= 0)
         {
-            _ParticleSystem1.Play();
+            _ParticleSystem1.gameObject.SetActive(true);
             _ParticleSystem2.Play();
         }
 	}

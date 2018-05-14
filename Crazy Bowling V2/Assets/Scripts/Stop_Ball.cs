@@ -42,6 +42,7 @@ public class Stop_Ball : MonoBehaviour {
         if (other.gameObject.tag == "Stop")
         {
             _Player_Script.enabled = true;
+            _Area_Control.enabled = false;
         }
     }
 
