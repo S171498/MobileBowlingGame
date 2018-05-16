@@ -5,10 +5,14 @@ using UnityEngine;
 public class Stop_Ball : MonoBehaviour {
 
     public Player_Script _Player_Script;
-    public Camera_Controller _Camera_Controller;
+    public NewCameraFollow _NewCameraFollow;
     public Area_Control _Area_Control;
 
     public Transform ballSpawn;
+
+    public Transform cameraSpawn;
+
+    public GameObject Camera;
 
     // Use this for initialization
     void Start()
@@ -27,13 +31,15 @@ public class Stop_Ball : MonoBehaviour {
         if (other.gameObject.tag == "Stop")
         {
             _Player_Script.enabled = false;
-            _Camera_Controller.enabled = false;
+            _NewCameraFollow.enabled = false;
             _Area_Control.enabled = true;
         }
 
         if(other.gameObject.tag == "CameraReset")
         {
-            _Camera_Controller.enabled = true;
+            _NewCameraFollow.enabled = true;
+            Camera.transform.position = cameraSpawn.position;
+            Camera.transform.rotation = cameraSpawn.rotation;
         }
     }
 

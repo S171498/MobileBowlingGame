@@ -79,6 +79,7 @@
      <Compile Include="Assets\Scripts\LoadLevel.cs" />
      <Compile Include="Assets\Scripts\MaintainSpeed.cs" />
      <Compile Include="Assets\Scripts\Mobile_Controls.cs" />
+     <Compile Include="Assets\Scripts\NewCameraFollow.cs" />
      <Compile Include="Assets\Scripts\ParticleStart.cs" />
      <Compile Include="Assets\Scripts\Player_Script.cs" />
      <Compile Include="Assets\Scripts\ResetPins.cs" />

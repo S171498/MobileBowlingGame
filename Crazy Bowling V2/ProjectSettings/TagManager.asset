@@ -13,6 +13,7 @@ TagManager:
   - GreenZone
   - YellowZone
   - ClearMulti
+  - CameraSpawn
   layers:
   - Default
   - TransparentFX
