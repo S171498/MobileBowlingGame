@@ -13,13 +13,18 @@ public class Player_Script : MonoBehaviour
     public float Timer;
     public static int Multiplier;
     public int MultiplierShow;
-    public Text TimerText;
+
     public Text MultiplierText;
+    public RectTransform m_RectTransform;
 
     public ScoreHolder _ScoreHolder;
 
     public Transform ballSpawn;
     private Rigidbody rb;
+
+    public Color lerpedColor = Color.green;
+    public Color lerpedColor2 = Color.yellow;
+    public Color lerpedColor3 = Color.red;
 
     public int RedValue;
     public int YellowValue;
@@ -33,6 +38,7 @@ public class Player_Script : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
         RedValue = 10;
         YellowValue = 5;
         GreenValue = 1;
@@ -42,7 +48,11 @@ public class Player_Script : MonoBehaviour
 
     void Update()
     {
-        if(RedZone == true)
+
+        lerpedColor = Color.Lerp(Color.green, Color.black, Mathf.PingPong(Time.time, 1));
+        lerpedColor2 = Color.Lerp(Color.yellow, Color.black, Mathf.PingPong(Time.time, 1));
+        lerpedColor3 = Color.Lerp(Color.red, Color.black, Mathf.PingPong(Time.time, 1));
+        if (RedZone == true)
         {
             _ScoreHolder.AddScore(RedValue * Multiplier);
         }
@@ -55,8 +65,7 @@ public class Player_Script : MonoBehaviour
             _ScoreHolder.AddScore(GreenValue * Multiplier);
         }
 
-        TimerText.text = "Time: " + Timer.ToString("N0");
-        MultiplierText.text = "Multipler: " + Multiplier.ToString();
+        MultiplierText.text = "X" + Multiplier.ToString();
 
         MultiplierShow = Multiplier;
 
@@ -65,14 +74,20 @@ public class Player_Script : MonoBehaviour
         if (Timer < 15)
         {
             Multiplier = 3;
+            MultiplierText.fontSize = 80;
+            MultiplierText.color = lerpedColor;
         }
         if (Timer >= 15)
         {
             Multiplier = 2;
+            MultiplierText.fontSize = 50;
+            MultiplierText.color = lerpedColor2;
         }
         if (Timer >= 30)
         {
             Multiplier = 1;
+            MultiplierText.fontSize = 30;
+            MultiplierText.color = lerpedColor3;
         }
 
     }
