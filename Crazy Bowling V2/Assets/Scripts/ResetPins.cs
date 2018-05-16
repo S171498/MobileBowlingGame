@@ -13,9 +13,17 @@ public class ResetPins : MonoBehaviour {
         rotation = gameObject.transform.rotation;
     }
 
+    void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.tag == "Explosion")
+        {
+            StartCoroutine(SpawnPins());
+        }
+    }
+
     public void ResetPin(object _ball)
     {
-        StartCoroutine(SpawnPins());
+        //StartCoroutine(SpawnPins());
         /*gameObject.transform.position = position;
         gameObject.transform.rotation = rotation;
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;

@@ -83,7 +83,7 @@
      <Compile Include="Assets\Scripts\Player_Script.cs" />
      <Compile Include="Assets\Scripts\ResetPins.cs" />
      <Compile Include="Assets\Scripts\RestartAndQuit.cs" />
-     <Compile Include="Assets\Scripts\ScoreKeeper.cs" />
+     <Compile Include="Assets\Scripts\ScoreHolder.cs" />
      <Compile Include="Assets\Scripts\ShowScore.cs" />
      <Compile Include="Assets\Scripts\Stop_Ball.cs" />
      <None Include="Assets\Asset Packs\POLY STYLE - Vegetation Pack\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />

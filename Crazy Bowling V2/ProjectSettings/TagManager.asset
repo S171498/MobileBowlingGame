@@ -9,6 +9,10 @@ TagManager:
   - Stop
   - CameraReset
   - Explosion
+  - RedZone
+  - GreenZone
+  - YellowZone
+  - ClearMulti
   layers:
   - Default
   - TransparentFX

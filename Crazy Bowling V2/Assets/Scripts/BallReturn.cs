@@ -44,27 +44,6 @@ public class BallReturn : MonoBehaviour {
         */
     }
 
-    public void LateUpdate()
-    {
-        if(doUpdate)
-        {
-            _ball += 1;
-            _ball = _ball % 3;
-            StartCoroutine(DelayUpdate());
-            // GameTimer = 30;
-        }
-        doUpdate = false;
-    }
-
-    public IEnumerator DelayUpdate()
-    {
-        yield return new WaitForSeconds(1f);
-        gameObject.SendMessage("UpdateScore", _ball, SendMessageOptions.RequireReceiver);
-       // GameTimer = 30f;
-        yield return 0;
-        
-    }
-
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.GetComponent<Player_Script>() != null || other.gameObject.GetComponent<Mobile_Controls>() != null )
@@ -72,6 +51,7 @@ public class BallReturn : MonoBehaviour {
             doUpdate = true;
             other.gameObject.SendMessage("Reset", _ball, SendMessageOptions.DontRequireReceiver);
         }
+
     }
 
     //Resets all pins to be back at the start point and resets the frame back to zero.
