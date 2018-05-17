@@ -366,7 +366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Player_Script: {fileID: 700140286}
-  _NewCameraFollow: {fileID: 0}
+  _Camera_Controller: {fileID: 0}
   _Area_Control: {fileID: 700140294}
   ballSpawn: {fileID: 237281774}
   cameraSpawn: {fileID: 0}
@@ -530,7 +530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Player_Script: {fileID: 700140286}
-  _NewCameraFollow: {fileID: 1200896419}
+  _Camera_Controller: {fileID: 0}
   _Area_Control: {fileID: 700140294}
   ballSpawn: {fileID: 237281774}
   cameraSpawn: {fileID: 1482158704}
@@ -1343,6 +1343,22 @@ Prefab:
     - target: {fileID: 19826892, guid: b82449563c8abbc47955dd85ec1c8048, type: 2}
       propertyPath: TrailModule.colorOverTrail.minGradient.key1.b
       value: 0.4852941
+      objectReference: {fileID: 0}
+    - target: {fileID: 19826892, guid: b82449563c8abbc47955dd85ec1c8048, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19826892, guid: b82449563c8abbc47955dd85ec1c8048, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19826892, guid: b82449563c8abbc47955dd85ec1c8048, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19826892, guid: b82449563c8abbc47955dd85ec1c8048, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
       objectReference: {fileID: 0}
     - target: {fileID: 19826892, guid: b82449563c8abbc47955dd85ec1c8048, type: 2}
       propertyPath: ShapeModule.radiusThickness
@@ -3883,7 +3899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Player_Script: {fileID: 700140286}
-  _NewCameraFollow: {fileID: 1200896419}
+  _Camera_Controller: {fileID: 1200896414}
   _Area_Control: {fileID: 700140294}
   ballSpawn: {fileID: 237281774}
   cameraSpawn: {fileID: 1482158704}
@@ -5481,7 +5497,7 @@ GameObject:
   - component: {fileID: 1200896417}
   - component: {fileID: 1200896416}
   - component: {fileID: 1200896415}
-  - component: {fileID: 1200896419}
+  - component: {fileID: 1200896414}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5489,6 +5505,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1200896414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1200896413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fbacd503abb52043ae78bb90a3ea1fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 700140293}
+  smoothSpeed: 0.5
+  offset: {x: 0, y: 0.5, z: -1.5}
 --- !u!81 &1200896415
 AudioListener:
   m_ObjectHideFlags: 0
@@ -5552,24 +5582,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1200896419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1200896413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18925683765fe234dbed2ebf19f93b08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TargetObject: {fileID: 700140293}
-  followHeight: 0.2
-  smoothedFollow: 0
-  smoothSpeed: 2
-  useFixedLookDirection: 0
-  fixedLookDirection: {x: 1, y: 1, z: 1}
-  offset: {x: 0, y: 0.5, z: -1.5}
 --- !u!4 &1201438187 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 567a9be2e5b908b45ad7e3f7492dac3d, type: 3}
