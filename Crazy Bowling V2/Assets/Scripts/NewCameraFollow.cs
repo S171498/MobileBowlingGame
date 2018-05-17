@@ -5,19 +5,25 @@ using UnityEngine;
 public class NewCameraFollow : MonoBehaviour
 {
         public Transform TargetObject;
-        public float followDistance = 5f;
+        //public float followDistance = 5f;
         public float followHeight = 2f;
         public bool smoothedFollow = false;         //toggle this for hard or smoothed follow
         public float smoothSpeed = 5f;
         public bool useFixedLookDirection = false;      //optional different camera mode... fixed look direction
         public Vector3 fixedLookDirection = Vector3.one;
+        public Vector3 offset;
 
-        // Use this for initialization
-        void Start()
+    // Use this for initialization
+    void Start()
         {
             //do something when game object is activated .. if you want to
 
         }
+
+    void FixedUpdate()
+    {
+        Vector3 desiredPosition = TargetObject.position + offset;
+    }
 
         // Update is called once per frame
         void Update()
@@ -31,8 +37,8 @@ public class NewCameraFollow : MonoBehaviour
 
             //make it stay a fixed distance behind ball
             Vector3 newPos;
-            newPos = TargetObject.position - lookToward.normalized * followDistance;
-            newPos.y = TargetObject.position.y + followHeight;
+        newPos = TargetObject.position - lookToward.normalized; //* followDistance;
+        newPos.y = TargetObject.position.y + followHeight;
 
             if (!smoothedFollow)
             {
