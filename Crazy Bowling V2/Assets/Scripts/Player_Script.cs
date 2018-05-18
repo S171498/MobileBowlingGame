@@ -57,18 +57,24 @@ public class Player_Script : MonoBehaviour
         {
             _ScoreHolder.AddScore(RedValue * Multiplier);
             MultiplierText.color = lerpedColor3;
+            GreenZone = false;
+            YellowZone = false;
         }
 
         if (YellowZone == true)
         {
             _ScoreHolder.AddScore(YellowValue * Multiplier);
             MultiplierText.color = lerpedColor2;
+            RedZone = false;
+            GreenZone = false;
         }
 
         if (GreenZone == true)
         {
             _ScoreHolder.AddScore(GreenValue * Multiplier);
             MultiplierText.color = lerpedColor;
+            YellowZone = false;
+            RedZone = false;
         }
 
         if(NeutralZone == true)
@@ -106,18 +112,24 @@ public class Player_Script : MonoBehaviour
         if(other.gameObject.tag == "RedZone")
         {
             RedZone = true;
+            YellowZone = false;
+            GreenZone = false;
             NeutralZone = false;
         }
 
         if (other.gameObject.tag == "YellowZone")
         {
             YellowZone = true;
+            GreenZone = false;
+            RedZone = false;
             NeutralZone = false;
         }
 
         if (other.gameObject.tag == "GreenZone")
         {
             GreenZone = true;
+            YellowZone = false;
+            RedZone = false;
             NeutralZone = false;
         }
 
