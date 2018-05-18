@@ -11,11 +11,12 @@ public class Player_Script : MonoBehaviour
     public float speed;
 
     public float Timer;
-    public static int Multiplier;
-    public int MultiplierShow;
+    public float Multiplier;
+    //public float MultiplierShow;
 
     public Text MultiplierText;
     public RectTransform m_RectTransform;
+    public Text MultiplierZone;
 
     public ScoreHolder _ScoreHolder;
 
@@ -29,6 +30,8 @@ public class Player_Script : MonoBehaviour
     public int RedValue;
     public int YellowValue;
     public int GreenValue;
+    public int ZoneMultiplier;
+    
 
     public bool NeutralZone;
     public bool RedZone;
@@ -40,76 +43,70 @@ public class Player_Script : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         RedValue = 10;
-        YellowValue = 3;
+        YellowValue = 5;
         GreenValue = 1;
-        Timer = 0;
-        Multiplier = 3;
+        Timer = 30;
+        Multiplier = Timer;
+        ZoneMultiplier = 0;
     }
 
     void Update()
     {
-
+        Multiplier = Timer;
         lerpedColor = Color.Lerp(Color.green, Color.black, Mathf.PingPong(Time.time, 1));
         lerpedColor2 = Color.Lerp(Color.yellow, Color.black, Mathf.PingPong(Time.time, 1));
         lerpedColor3 = Color.Lerp(Color.red, Color.black, Mathf.PingPong(Time.time, 1));
-    
+
+
+
         if (RedZone == true)
         {
-            _ScoreHolder.AddScore(RedValue * Multiplier);
-            MultiplierText.color = lerpedColor3;
-            GreenZone = false;
-            YellowZone = false;
+            //_ScoreHolder.AddScore(RedValue);
+            ZoneMultiplier = 3;
+            MultiplierZone.color = lerpedColor3;
         }
-
         if (YellowZone == true)
         {
-            _ScoreHolder.AddScore(YellowValue * Multiplier);
-            MultiplierText.color = lerpedColor2;
-            RedZone = false;
-            GreenZone = false;
+            //_ScoreHolder.AddScore(YellowValue);
+            ZoneMultiplier = 2;
+            MultiplierZone.color = lerpedColor2;
         }
-
         if (GreenZone == true)
         {
-            _ScoreHolder.AddScore(GreenValue * Multiplier);
-            MultiplierText.color = lerpedColor;
-            YellowZone = false;
-            RedZone = false;
+            //_ScoreHolder.AddScore(GreenValue);
+            ZoneMultiplier = 1;
+            MultiplierZone.color = lerpedColor;
         }
 
-        if(NeutralZone == true)
+        if (Timer <= 1)
         {
-            MultiplierText.color = Color.black;
+            Timer = 0;
+            MultiplierText.color = Color.red;
         }
 
-        MultiplierText.text = "X" + Multiplier.ToString();
+        if(Timer <= 10)
+        {
+            MultiplierText.color = lerpedColor3;
+        }
 
-        MultiplierShow = Multiplier;
+        MultiplierText.text = "" + Multiplier.ToString();
+        MultiplierZone.text = "X" + ZoneMultiplier;
+
+        //MultiplierShow = Multiplier;
 
         // Timer will increase every second, if the timer reaches a certain amount then the multiplier will decrease
-        Timer += Time.deltaTime;
-        if (Timer < 15)
+        if (Timer > 1)
         {
-            Multiplier = 3;
-            MultiplierText.fontSize = 80;    
+            Timer -= Time.deltaTime;
         }
-        if (Timer >= 15)
-        {
-            Multiplier = 2;
-            MultiplierText.fontSize = 50;
-            
-        }
-        if (Timer >= 30)
-        {
-            Multiplier = 1;
-            MultiplierText.fontSize = 30;   
-        }
+
+        Timer = Mathf.Round(Timer * 100f) / 100f;
 
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "RedZone")
+        if (other.gameObject.tag == "RedZone")
         {
             RedZone = true;
             YellowZone = false;
@@ -120,8 +117,8 @@ public class Player_Script : MonoBehaviour
         if (other.gameObject.tag == "YellowZone")
         {
             YellowZone = true;
-            GreenZone = false;
             RedZone = false;
+            GreenZone = false;
             NeutralZone = false;
         }
 
@@ -141,14 +138,12 @@ public class Player_Script : MonoBehaviour
             GreenZone = false;
         }
 
-        if(other.gameObject.tag == "ClearMulti")
+        if (other.gameObject.tag == "ClearMulti")
         {
-            Timer = 0;
-        }
-
-        if(other.gameObject.tag == "Gutter")
-        {
-            _ScoreHolder.Score = 0;
+            Timer = 30;
+            ZoneMultiplier = 0;
+            MultiplierZone.color = Color.black;
+            MultiplierText.color = Color.black;
         }
     }
 
@@ -157,9 +152,19 @@ public class Player_Script : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        Transform cameraTransform = Camera.main.transform;
 
-        rb.AddForce(movement * speed);
+        Vector3 camForward = cameraTransform.forward;
+        camForward.y = 0.0f;
+        camForward.Normalize();
+
+        Vector3 camRight = Vector3.Cross(camForward, -Vector3.up);
+
+        Vector3 betterMovement = camForward * moveVertical + camRight * moveHorizontal;
+
+        //Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+
+        rb.AddForce(betterMovement * speed);
     }
 
     public void Reset(object _ball)

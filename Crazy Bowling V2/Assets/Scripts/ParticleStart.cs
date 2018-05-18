@@ -2,37 +2,44 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ParticleStart : MonoBehaviour {
+public class ParticleStart : MonoBehaviour
+{
 
     public ParticleSystem _ParticleSystem1;
     public int pinCount;
     public int PinValue;
+    public float PinMult;
+    public Transform Pin;
     public ScoreHolder _ScoreHolder;
+    public Player_Script _PlayerScript;
+
+    public bool isFallen;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
 
-        PinValue = 10;
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        PinValue = 100;
+    }
 
-        if(pinCount == 0)
+    // Update is called once per frame
+    void Update()
+    {
+
+        if (pinCount == 0)
         {
             _ParticleSystem1.gameObject.SetActive(true);
         }
 
-        if(pinCount == 10)
+        if (pinCount == 10)
         {
             _ParticleSystem1.gameObject.SetActive(false);
         }
-	}
+    }
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Pins")
+        if (other.gameObject.tag == "Pins")
         {
             pinCount++;
         }
@@ -40,11 +47,10 @@ public class ParticleStart : MonoBehaviour {
 
     void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.tag == "Pins")
+        if (other.gameObject.tag == "Pins")
         {
             pinCount--;
-            _ScoreHolder.AddScore(PinValue * 10);
+            _ScoreHolder.AddScore(PinValue * _PlayerScript.ZoneMultiplier * _PlayerScript.Multiplier);
         }
-
     }
 }

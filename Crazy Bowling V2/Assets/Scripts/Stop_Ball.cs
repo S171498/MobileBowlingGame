@@ -5,7 +5,7 @@ using UnityEngine;
 public class Stop_Ball : MonoBehaviour {
 
     public Player_Script _Player_Script;
-    public Camera_Controller _Camera_Controller;
+    public NewCameraFollow _Camera_Controller;
     public Area_Control _Area_Control;
 
     public Transform ballSpawn;
