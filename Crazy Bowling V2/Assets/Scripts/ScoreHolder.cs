@@ -9,7 +9,10 @@ public class ScoreHolder : MonoBehaviour {
     public RectTransform m_RectTransform;
     public int Score;
 
+    public Player_Script _Player_Script;
     public Color lerpedColor = Color.green;
+    public Color lerpedColor2 = Color.yellow;
+    public Color lerpedColor3 = Color.red;
 
     // Use this for initialization
     void Start () {
@@ -21,10 +24,30 @@ public class ScoreHolder : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        scoreText.color = lerpedColor;
+        
         lerpedColor = Color.Lerp(Color.green, Color.black, Mathf.PingPong(Time.time, 1));
+        lerpedColor2 = Color.Lerp(Color.yellow, Color.black, Mathf.PingPong(Time.time, 1));
+        lerpedColor3 = Color.Lerp(Color.red, Color.black, Mathf.PingPong(Time.time, 1));
 
-        if(Score > 100)
+        if (_Player_Script.RedZone == true)
+        {
+            scoreText.color = lerpedColor3;
+        }
+        if (_Player_Script.YellowZone == true)
+        {
+            scoreText.color = lerpedColor2;
+        }
+        if (_Player_Script.GreenZone == true)
+        {
+            scoreText.color = lerpedColor;
+        }
+        if(_Player_Script.NeutralZone == true)
+        {
+            scoreText.color = Color.black;
+        }
+
+
+        if (Score > 100)
         {
             scoreText.fontSize = 30;
         }
@@ -43,6 +66,8 @@ public class ScoreHolder : MonoBehaviour {
         {
             scoreText.fontSize = 80;
         }
+
+        scoreText.text = "" + Score;
     }
 
     public void AddScore (int score)

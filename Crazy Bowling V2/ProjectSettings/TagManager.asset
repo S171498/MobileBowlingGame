@@ -14,6 +14,8 @@ TagManager:
   - YellowZone
   - ClearMulti
   - CameraSpawn
+  - AddScore
+  - Gutter
   layers:
   - Default
   - TransparentFX

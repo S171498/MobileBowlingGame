@@ -40,7 +40,7 @@ public class Player_Script : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         RedValue = 10;
-        YellowValue = 5;
+        YellowValue = 3;
         GreenValue = 1;
         Timer = 0;
         Multiplier = 3;
@@ -52,17 +52,28 @@ public class Player_Script : MonoBehaviour
         lerpedColor = Color.Lerp(Color.green, Color.black, Mathf.PingPong(Time.time, 1));
         lerpedColor2 = Color.Lerp(Color.yellow, Color.black, Mathf.PingPong(Time.time, 1));
         lerpedColor3 = Color.Lerp(Color.red, Color.black, Mathf.PingPong(Time.time, 1));
+    
         if (RedZone == true)
         {
             _ScoreHolder.AddScore(RedValue * Multiplier);
+            MultiplierText.color = lerpedColor3;
         }
+
         if (YellowZone == true)
         {
             _ScoreHolder.AddScore(YellowValue * Multiplier);
+            MultiplierText.color = lerpedColor2;
         }
+
         if (GreenZone == true)
         {
             _ScoreHolder.AddScore(GreenValue * Multiplier);
+            MultiplierText.color = lerpedColor;
+        }
+
+        if(NeutralZone == true)
+        {
+            MultiplierText.color = Color.black;
         }
 
         MultiplierText.text = "X" + Multiplier.ToString();
@@ -74,20 +85,18 @@ public class Player_Script : MonoBehaviour
         if (Timer < 15)
         {
             Multiplier = 3;
-            MultiplierText.fontSize = 80;
-            MultiplierText.color = lerpedColor;
+            MultiplierText.fontSize = 80;    
         }
         if (Timer >= 15)
         {
             Multiplier = 2;
             MultiplierText.fontSize = 50;
-            MultiplierText.color = lerpedColor2;
+            
         }
         if (Timer >= 30)
         {
             Multiplier = 1;
-            MultiplierText.fontSize = 30;
-            MultiplierText.color = lerpedColor3;
+            MultiplierText.fontSize = 30;   
         }
 
     }
@@ -123,6 +132,11 @@ public class Player_Script : MonoBehaviour
         if(other.gameObject.tag == "ClearMulti")
         {
             Timer = 0;
+        }
+
+        if(other.gameObject.tag == "Gutter")
+        {
+            _ScoreHolder.Score = 0;
         }
     }
 
