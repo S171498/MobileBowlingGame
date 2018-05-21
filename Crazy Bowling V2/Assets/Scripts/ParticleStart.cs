@@ -6,20 +6,25 @@ public class ParticleStart : MonoBehaviour
 {
 
     public ParticleSystem _ParticleSystem1;
+
     public int pinCount;
-    public int PinValue;
+    public float PinValue;
+    public float StrikeValue;
     public float PinMult;
+
     public Transform Pin;
     public ScoreHolder _ScoreHolder;
     public Player_Script _PlayerScript;
 
     public bool isFallen;
+    public bool Strike;
+    
 
     // Use this for initialization
     void Start()
     {
-
         PinValue = 100;
+        StrikeValue = 10000;
     }
 
     // Update is called once per frame
@@ -29,11 +34,19 @@ public class ParticleStart : MonoBehaviour
         if (pinCount == 0)
         {
             _ParticleSystem1.gameObject.SetActive(true);
+            Strike = true;
         }
 
         if (pinCount == 10)
         {
             _ParticleSystem1.gameObject.SetActive(false);
+            Strike = false;
+        }
+
+        if (Strike == true)
+        {
+            _ScoreHolder.AddScore(StrikeValue);
+            Strike = false;
         }
     }
 

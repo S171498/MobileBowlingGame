@@ -31,12 +31,14 @@ public class Player_Script : MonoBehaviour
     public int YellowValue;
     public int GreenValue;
     public int ZoneMultiplier;
-    
+    public int turnsTaken;
 
     public bool NeutralZone;
     public bool RedZone;
     public bool YellowZone;
     public bool GreenZone;
+
+    public GameObject EndGamePanel;
 
     void Start()
     {
@@ -48,6 +50,9 @@ public class Player_Script : MonoBehaviour
         Timer = 30;
         Multiplier = Timer;
         ZoneMultiplier = 0;
+        turnsTaken = 0;
+        EndGamePanel.gameObject.SetActive(false);
+        Time.timeScale = 1;
     }
 
     void Update()
@@ -80,7 +85,7 @@ public class Player_Script : MonoBehaviour
 
         if (Timer <= 1)
         {
-            Timer = 0;
+            Timer = 1;
             MultiplierText.color = Color.red;
         }
 
@@ -102,6 +107,20 @@ public class Player_Script : MonoBehaviour
 
         Timer = Mathf.Round(Timer * 100f) / 100f;
 
+        if(turnsTaken == 5)
+        {
+            Time.timeScale = 0;
+            EndGamePanel.gameObject.SetActive(true);
+        }
+
+    }
+
+    public void Restart()
+    {
+        turnsTaken = 0;
+        _ScoreHolder.Score = 0;
+        EndGamePanel.gameObject.SetActive(false);
+        Time.timeScale = 1;
     }
 
     void OnTriggerEnter(Collider other)
@@ -144,6 +163,11 @@ public class Player_Script : MonoBehaviour
             ZoneMultiplier = 0;
             MultiplierZone.color = Color.black;
             MultiplierText.color = Color.black;
+        }
+
+        if (other.gameObject.tag == "AddScore" || other.gameObject.tag == "Gutter")
+        {
+            turnsTaken += 1;
         }
     }
 

@@ -7,6 +7,8 @@ public class ScoreHolder : MonoBehaviour {
 
     public Text scoreText;
     public RectTransform m_RectTransform;
+    public Text highScoreHolder;
+    public Text nameText;
     public float Score;
     public float ScoreMult;
 
@@ -20,7 +22,8 @@ public class ScoreHolder : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-
+        highScoreHolder.text = PlayerPrefs.GetFloat("HighScore", 0).ToString();
+        scoreText.text = "" + Score;
         Score = 0;
     }
 
@@ -70,6 +73,19 @@ public class ScoreHolder : MonoBehaviour {
         {
             scoreText.fontSize = 80;
         }
+
+
+        if (Score > PlayerPrefs.GetFloat("HighScore", 0))
+        {
+            PlayerPrefs.SetFloat("HighScore", Score);
+            highScoreHolder.text = "" + Score.ToString("N0");
+        }
+    }
+
+    public void ResetPlayerPrefs()
+    {
+        PlayerPrefs.DeleteAll();
+        Debug.Log("High Score Reset");
     }
 
     public void AddScore(float score)

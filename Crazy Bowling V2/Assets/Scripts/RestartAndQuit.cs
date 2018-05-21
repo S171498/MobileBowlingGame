@@ -5,8 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class RestartAndQuit : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    public GameObject EndGamePanel;
+    public ScoreHolder _ScoreHolder;
+    public Player_Script _PlayerScript;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -17,5 +21,10 @@ public class RestartAndQuit : MonoBehaviour {
         {
             SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
         }
+    }
+
+    public void LoadLevel()
+    {
+        _PlayerScript.Restart();
     }
 }
