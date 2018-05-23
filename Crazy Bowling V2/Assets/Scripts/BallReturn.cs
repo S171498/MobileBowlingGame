@@ -8,6 +8,7 @@ public class BallReturn : MonoBehaviour {
     public int _ball = 0;
     public bool doUpdate = false;
 
+
     // public float GameTimer = 0; Code for the game timer has been commented out for now as it has been moved to the ScoreKeeper script 
     // public Text timer;
 
@@ -50,7 +51,6 @@ public class BallReturn : MonoBehaviour {
             doUpdate = true;
             other.gameObject.SendMessage("Reset", _ball, SendMessageOptions.DontRequireReceiver);
         }
-
     }
 
     //Resets all pins to be back at the start point and resets the frame back to zero.

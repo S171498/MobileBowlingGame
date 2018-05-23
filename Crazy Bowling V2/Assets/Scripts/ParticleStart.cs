@@ -7,6 +7,7 @@ public class ParticleStart : MonoBehaviour
 
     public ParticleSystem _ParticleSystem1;
 
+    
     public int pinCount;
     public float PinValue;
     public float StrikeValue;
@@ -16,9 +17,7 @@ public class ParticleStart : MonoBehaviour
     public ScoreHolder _ScoreHolder;
     public Player_Script _PlayerScript;
 
-    public bool isFallen;
-    public bool Strike;
-    
+    public bool isFallen; 
 
     // Use this for initialization
     void Start()
@@ -30,31 +29,23 @@ public class ParticleStart : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (pinCount == 0)
         {
             _ParticleSystem1.gameObject.SetActive(true);
-            Strike = true;
+            _ScoreHolder.AddScore(StrikeValue);
+            //StrikeCount = StrikeCount + 1;
         }
 
         if (pinCount == 10)
         {
             _ParticleSystem1.gameObject.SetActive(false);
-            Strike = false;
-        }
-
-        if (Strike == true)
-        {
-            _ScoreHolder.AddScore(StrikeValue);
-            Strike = false;
         }
     }
-
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Pins")
         {
-            pinCount++;
+            pinCount = pinCount + 1;
         }
     }
 
@@ -62,7 +53,7 @@ public class ParticleStart : MonoBehaviour
     {
         if (other.gameObject.tag == "Pins")
         {
-            pinCount--;
+            pinCount = pinCount - 1;
             _ScoreHolder.AddScore(PinValue * _PlayerScript.ZoneMultiplier * _PlayerScript.Multiplier);
         }
     }

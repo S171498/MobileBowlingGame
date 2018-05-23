@@ -7,18 +7,16 @@ public class Player_Script : MonoBehaviour
 {
     public float boostTime = 1f;
     public float boostPower = 5f;
-    public bool boostActive = false;
     public float speed;
-
     public float Timer;
     public float Multiplier;
-    //public float MultiplierShow;
 
     public Text MultiplierText;
     public RectTransform m_RectTransform;
     public Text MultiplierZone;
 
     public ScoreHolder _ScoreHolder;
+    public ParticleStart _ParticleStart;
 
     public Transform ballSpawn;
     private Rigidbody rb;
@@ -32,11 +30,13 @@ public class Player_Script : MonoBehaviour
     public int GreenValue;
     public int ZoneMultiplier;
     public int turnsTaken;
+    public int StrikeCount;
 
     public bool NeutralZone;
     public bool RedZone;
     public bool YellowZone;
     public bool GreenZone;
+    public bool boostActive = false;
 
     public GameObject EndGamePanel;
 
@@ -107,12 +107,11 @@ public class Player_Script : MonoBehaviour
 
         Timer = Mathf.Round(Timer * 100f) / 100f;
 
-        if(turnsTaken == 5)
+        if(turnsTaken == 6)
         {
             Time.timeScale = 0;
             EndGamePanel.gameObject.SetActive(true);
         }
-
     }
 
     public void Restart()
@@ -161,14 +160,11 @@ public class Player_Script : MonoBehaviour
         {
             Timer = 30;
             ZoneMultiplier = 0;
+            turnsTaken += 1;
             MultiplierZone.color = Color.black;
             MultiplierText.color = Color.black;
         }
 
-        if (other.gameObject.tag == "AddScore" || other.gameObject.tag == "Gutter")
-        {
-            turnsTaken += 1;
-        }
     }
 
     void FixedUpdate()
@@ -193,7 +189,7 @@ public class Player_Script : MonoBehaviour
 
     public void Reset(object _ball)
     {
-        StartCoroutine(SpawnBall());
+         StartCoroutine(SpawnBall());
         /*gameObject.transform.position = ballSpawn.position;
         gameObject.transform.rotation = ballSpawn.rotation;
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -202,7 +198,7 @@ public class Player_Script : MonoBehaviour
 
     public IEnumerator SpawnBall()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         gameObject.transform.position = ballSpawn.position;
         gameObject.transform.rotation = ballSpawn.rotation;
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
