@@ -40,6 +40,11 @@ public class Player_Script : MonoBehaviour
 
     public GameObject EndGamePanel;
 
+    void Awake()
+    {
+        _ScoreHolder.Score = 0;
+    }
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -53,6 +58,7 @@ public class Player_Script : MonoBehaviour
         turnsTaken = 0;
         EndGamePanel.gameObject.SetActive(false);
         Time.timeScale = 1;
+        _ScoreHolder.Score = 0;
     }
 
     void Update()

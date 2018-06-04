@@ -11,6 +11,7 @@ public class RestartAndQuit : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
 		
 	}
 	
@@ -26,5 +27,10 @@ public class RestartAndQuit : MonoBehaviour {
     public void LoadLevel()
     {
         _PlayerScript.Restart();
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 }

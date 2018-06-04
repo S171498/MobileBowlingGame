@@ -19,11 +19,17 @@ public class ParticleStart : MonoBehaviour
 
     public bool isFallen; 
 
+    void Awake()
+    {
+        _ScoreHolder.Score = 0;
+    }
+
     // Use this for initialization
     void Start()
     {
         PinValue = 100;
         StrikeValue = 10000;
+        _ScoreHolder.Score = 0;
     }
 
     // Update is called once per frame

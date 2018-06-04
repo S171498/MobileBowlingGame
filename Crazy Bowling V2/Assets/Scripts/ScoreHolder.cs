@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ScoreHolder : MonoBehaviour {
 
@@ -19,6 +20,11 @@ public class ScoreHolder : MonoBehaviour {
     public Color lerpedColor2 = Color.yellow;
     public Color lerpedColor3 = Color.red;
 
+    void Awake()
+    {
+        Score = 0;
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -30,6 +36,7 @@ public class ScoreHolder : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+
 
         scoreText.text = "" + Score;
 
