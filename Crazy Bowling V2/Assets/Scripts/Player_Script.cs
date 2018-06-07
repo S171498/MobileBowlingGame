@@ -13,7 +13,10 @@ public class Player_Script : MonoBehaviour
 
     public Text MultiplierText;
     public RectTransform m_RectTransform;
-    public Text MultiplierZone;
+    public Text RedCount;
+    public Text YellowCount;
+    public Text GreenCount;
+    public Text FallText;
 
     public ScoreHolder _ScoreHolder;
     public ParticleStart _ParticleStart;
@@ -31,6 +34,10 @@ public class Player_Script : MonoBehaviour
     public int ZoneMultiplier;
     public int turnsTaken;
     public int StrikeCount;
+    public int RedZoneCount;
+    public int YellowZoneCount;
+    public int GreenZoneCount;
+    public int FallCount;
 
     public bool NeutralZone;
     public bool RedZone;
@@ -74,19 +81,16 @@ public class Player_Script : MonoBehaviour
         {
             //_ScoreHolder.AddScore(RedValue);
             ZoneMultiplier = 3;
-            MultiplierZone.color = lerpedColor3;
         }
         if (YellowZone == true)
         {
             //_ScoreHolder.AddScore(YellowValue);
             ZoneMultiplier = 2;
-            MultiplierZone.color = lerpedColor2;
         }
         if (GreenZone == true)
         {
             //_ScoreHolder.AddScore(GreenValue);
             ZoneMultiplier = 1;
-            MultiplierZone.color = lerpedColor;
         }
 
         if (Timer <= 1)
@@ -101,7 +105,12 @@ public class Player_Script : MonoBehaviour
         }
 
         MultiplierText.text = "" + Multiplier.ToString();
-        MultiplierZone.text = "X" + ZoneMultiplier;
+
+        RedCount.text = "" + RedZoneCount.ToString();
+        YellowCount.text = "" + YellowZoneCount.ToString();
+        GreenCount.text = "" + GreenZoneCount.ToString();
+
+        FallText.text = "" + FallCount.ToString();
 
         //MultiplierShow = Multiplier;
 
@@ -133,6 +142,7 @@ public class Player_Script : MonoBehaviour
         if (other.gameObject.tag == "RedZone")
         {
             RedZone = true;
+            RedZoneCount += 1;
             YellowZone = false;
             GreenZone = false;
             NeutralZone = false;
@@ -141,6 +151,7 @@ public class Player_Script : MonoBehaviour
         if (other.gameObject.tag == "YellowZone")
         {
             YellowZone = true;
+            YellowZoneCount += 1;
             RedZone = false;
             GreenZone = false;
             NeutralZone = false;
@@ -149,6 +160,7 @@ public class Player_Script : MonoBehaviour
         if (other.gameObject.tag == "GreenZone")
         {
             GreenZone = true;
+            GreenZoneCount += 1;
             YellowZone = false;
             RedZone = false;
             NeutralZone = false;
@@ -167,8 +179,12 @@ public class Player_Script : MonoBehaviour
             Timer = 30;
             ZoneMultiplier = 0;
             turnsTaken += 1;
-            MultiplierZone.color = Color.black;
             MultiplierText.color = Color.black;
+        }
+
+        if(other.gameObject.tag == "Gutter")
+        {
+            FallCount += 1;
         }
 
     }
